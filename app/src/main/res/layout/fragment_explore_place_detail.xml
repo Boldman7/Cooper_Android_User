@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/background_color">
+
+    <LinearLayout
+        android:id="@+id/lnrTitleExplorePlaceDetailFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_explore_place_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:tint="@color/text_color_white"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/title_explore_place_detail"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="@string/action_explore"
+            android:textColor="@color/text_color_white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_below="@id/lnrTitleExplorePlaceDetailFragment"
+        android:id="@+id/explore_place_detail_place_image"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_text_color"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_below="@id/explore_place_detail_place_image"
+        android:layout_margin="10dp"
+        android:id="@+id/explore_place_detail_place_address"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/visit_website_text"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_below="@id/explore_place_detail_place_address"
+        android:layout_margin="10dp"
+        android:id="@+id/explore_place_detail_visit_website_text"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/text_color_white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="@string/website"
+        android:layout_below="@id/explore_place_detail_visit_website_text"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="40dp"
+        android:visibility="gone"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/round_button_blue"
+        android:id="@+id/explore_place_detail_visit_website_url"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/cooper_me_here"
+        android:textColor="@color/text_color_white"
+        android:background="@drawable/round_corner_black"
+        android:id="@+id/cooper_me_here"
+        android:layout_margin="25dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/root"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:padding="10dp">
+    
+    <ImageView
+        android:id="@+id/paymentTypeImg"
+        android:src="@drawable/visa_payment_image"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:padding="5dp"
+        android:layout_centerVertical="true"/>
+    <ImageView
+        android:src="@drawable/visa_dot_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/paymentTypeImg"
+        android:id="@+id/visaDotImage"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"/>
+    <TextView
+        android:id="@+id/cardNumber"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_toEndOf="@+id/visaDotImage"
+        android:layout_toStartOf="@+id/img_tick"
+        android:layout_height="wrap_content"
+       android:layout_centerVertical="true"
+       />
+
+    <ImageView
+        android:id="@+id/img_tick"
+        android:layout_width="25dp"
+        android:src="@drawable/ic_tick"
+        android:visibility="gone"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_height="30dp" />
+
+</RelativeLayout>

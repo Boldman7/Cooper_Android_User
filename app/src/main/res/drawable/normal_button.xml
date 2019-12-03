@@ -1,0 +1,23 @@
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="@android:integer/config_shortAnimTime"
+    android:exitFadeDuration="@android:integer/config_longAnimTime">
+
+    <item android:state_pressed="true" >
+        <shape>
+            <gradient
+                android:startColor="@color/colorAccent"
+                android:endColor="@color/yellow_two_past_trip"
+                android:angle="270" />
+        </shape>
+    </item>
+    <item android:state_pressed="false" >
+        <shape>
+            <gradient
+                android:startColor="@color/yellow_two_past_trip"
+                android:endColor="@color/colorAccent"
+                android:angle="270" />
+        </shape>
+    </item>
+
+</selector>

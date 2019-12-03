@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "386640541728",
+    "firebase_url": "https://cooper-abdbe.firebaseio.com",
+    "project_id": "cooper-abdbe",
+    "storage_bucket": "cooper-abdbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386640541728:android:ba468389c421dc3172e445",
+        "android_client_info": {
+          "package_name": "com.boldman.cooperuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386640541728-i7j3aieitbnjf4e3bf2ncj7kfquj54al.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boldman.cooperuser",
+            "certificate_hash": "2764ce44b59eee9bc3406eac9078335ae82b4218"
+          }
+        },
+        {
+          "client_id": "386640541728-kn37he7avralk3m04jfcjvumub7428u0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhyk3Kg9kszTVtgoHPEHF5caZFf3UTa5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386640541728-kn37he7avralk3m04jfcjvumub7428u0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "386640541728-i3cvcv9tvdcltfrjkjbtph9jlrl89iim.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cooper.cooper-user-2019",
+                "app_store_id": "1464738009"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,133 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Button customization -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="button_padding">2dp</dimen>
+    <dimen name="button_margin">16dp</dimen>
+    <dimen name="button_gap">2dp</dimen>
+
+    <!-- content customization -->
+    <dimen name="content_padding">16dp</dimen>
+    <dimen name="txt_WaitingForApproval">24dp</dimen>
+
+    <!-- ================ font size ================ -->
+    <dimen name="txt_size_title_37">37dp</dimen>
+    <dimen name="txt_size_title_34">34dp</dimen>
+    <dimen name="txt_size_title_32">32dp</dimen>
+    <dimen name="txt_size_title_26">26dp</dimen>
+    <dimen name="txt_size_sub_title_19">19dp</dimen>
+    <dimen name="txt_size_label_25">25dp</dimen>
+    <dimen name="txt_size_label_22">22dp</dimen>
+    <dimen name="txt_size_label_20">20dp</dimen>
+    <dimen name="txt_size_label_19">19dp</dimen>
+    <dimen name="txt_size_label_18">18dp</dimen>
+    <dimen name="txt_size_label_17">17dp</dimen>
+    <dimen name="txt_size_label_16">16dp</dimen>
+    <dimen name="txt_size_label_15">15dp</dimen>
+    <dimen name="txt_size_label_14">14dp</dimen>
+    <dimen name="txt_size_label_13">13dp</dimen>
+    <dimen name="txt_size_label_12">12dp</dimen>
+    <dimen name="txt_size_label_11">11dp</dimen>
+    <dimen name="edt_txt_size_18">18dp</dimen>
+    <dimen name="btn_txt_size_17">17dp</dimen>
+    <dimen name="btn_txt_size_10">10dp</dimen>
+    <!-- ================ layout ================ -->
+    <dimen name="country_code_picker_search_height_36">36dp</dimen>
+    <dimen name="country_code_picker_search_margin_hori_13">13dp</dimen>
+    <dimen name="country_code_picker_search_margin_bottom_8">8dp</dimen>
+    <dimen name="country_code_picker_search_padding_12">12dp</dimen>
+    <dimen name="photo_grid_cell_col_gap_11">11dp</dimen>
+    <dimen name="photo_grid_cell_row_gap_24">24dp</dimen>
+    <dimen name="nav_bar_anim_start_margin_8">8dp</dimen>
+    <dimen name="offer_pager_padding_top_6">6dp</dimen>
+    <dimen name="offer_pager_padding_bottom_23">23dp</dimen>
+    <dimen name="view_round_radius_16">16dp</dimen>
+    <dimen name="view_round_radius_10">10dp</dimen>
+    <dimen name="instagram_grid_cell_col_gap_14">14dp</dimen>
+    <dimen name="instagram_grid_cell_row_gap_14">14dp</dimen>
+    <dimen name="offer_partner_grid_cell_col_gap_11">11dp</dimen>
+    <dimen name="offer_partner_grid_cell_row_gap_16">16dp</dimen>
+    <dimen name="offer_partner_grid_col2_top_margin_40">40dp</dimen>
+    <dimen name="offer_partner_grid_view_footer_height_140">140dp</dimen>
+    <dimen name="offer_stars_grid_view_footer_height_42">42dp</dimen>
+
+    <dimen name="splash_main_text_size">32sp</dimen>
+    <dimen name="splash_version_text_size">12sp</dimen>
+
+    <dimen name="fab_margin_right">16dp</dimen>
+    <dimen name="fab_margin_bottom">16dp</dimen>
+
+    <dimen name="toggle_button_params_small">30dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="grid_item_divider">1dp</dimen>
+
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="item_width">80dp</dimen>
+    <dimen name="item_height">136dp</dimen>
+    <dimen name="action_bar_height">80dp</dimen>
+
+    <dimen name="toggle_button_params">60dp</dimen>
+    <dimen name="element_fragment_margin">30dp</dimen>
+    <dimen name="element_fragment_margin_small">8dp</dimen>
+
+    <dimen name="margin_common">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_very_small">3dp</dimen>
+
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="text_size_call">18sp</dimen>
+    <dimen name="text_size_ringing">16sp</dimen>
+
+    <integer name="users_count">10</integer>
+
+    <dimen name="padding_start">16dp</dimen>
+    <dimen name="padding_top">16dp</dimen>
+    <dimen name="padding_top_large">24dp</dimen>
+    <dimen name="padding_actionbar">24dp</dimen>
+    <dimen name="padding_user_icon">16dp</dimen>
+    <dimen name="padding_bottom">62dp</dimen>
+    <dimen name="padding_outgoing_screen">48dp</dimen>
+    <dimen name="padding_common">8dp</dimen>
+    <dimen name="padding_common_twice">16dp</dimen>
+
+    <dimen name="list_item_side_margin">@dimen/padding_common_twice</dimen>
+    <dimen name="list_item_padding">8dp</dimen>
+    <dimen name="list_item_padding_top">8dp</dimen>
+    <dimen name="list_item_padding_bottom">8dp</dimen>
+
+    <dimen name="caller_name_text_size">22sp</dimen>
+    <dimen name="incoming_call_type_text_size">16sp</dimen>
+    <dimen name="also_on_call_text_size">16sp</dimen>
+    <dimen name="other_inc_users_text_size">16sp</dimen>
+
+    <dimen name="call_buttons_diameter">64dp</dimen>
+    <dimen name="call_buttons_padding">16dp</dimen>
+    <dimen name="call_caller_name_top_avatar_margin">16dp</dimen>
+    <dimen name="call_buttons_margin">32dp</dimen>
+    <dimen name="call_avatar_top_margin">64dp</dimen>
+    <dimen name="call_horizontal_avatar_start_margin">24dp</dimen>
+    <dimen name="call_horizontal_avatar_end_margin">24dp</dimen>
+    <dimen name="call_opponent_avatar_diameter">176dp</dimen>
+    <dimen name="call_avatar_top_margin_plus_height_actionbar">112dp</dimen>
+    <dimen name="income_call_buttons_margin">88dp</dimen>
+    <dimen name="also_in_call_text_left_right_padding">64dp</dimen>
+
+    <dimen name="call_avatar_diameter">78dp</dimen>
+    <dimen name="call_margin_top">50dp</dimen>
+    <dimen name="call_name_size">25sp</dimen>
+    <dimen name="call_end_button_width">200dp</dimen>
+    <dimen name="call_end_button_height">50dp</dimen>
+
+    <!--Pager fragment-->
+    <dimen name="pager_image_width">400dp</dimen>
+    <dimen name="pager_image_height">500dp</dimen>
+
+</resources>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".Fragments.MenuFragment"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/user_image_menu"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:src="@drawable/user_default_sidebar"
+                    android:background="@drawable/round_circle_white"/>
+
+                <TextView
+                    android:id="@+id/user_name_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_color_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/make_money_driving"
+                    android:textColor="@color/text_color_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/food_and_coffee_delivery"
+                    android:textColor="@color/light_grey" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:text="@string/payment"
+                android:textAllCaps="true"
+                android:id="@+id/payment_menu"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/your_trips"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:id="@+id/your_trips_menu"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/action_explore"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:id="@+id/explore_menu"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/free_rides"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:id="@+id/free_rides_menu"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/action_wallet"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textAllCaps="true"
+                android:id="@+id/wallet_menu"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/passbook"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:textAllCaps="true"
+                android:id="@+id/passbook_menu"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/help"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:id="@+id/help_menu"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/settings"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:id="@+id/settings_menu"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/action_logout"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="true"
+                android:id="@+id/logout_menu"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"/>
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="@string/legal"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:id="@+id/legal_menu"-->
+                <!--android:textSize="16sp"-->
+                <!--android:textColor="@color/colorPrimary"/>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:id="@+id/version_menu"
+                android:textColor="@android:color/darker_gray"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/cancel_circle"
+                android:id="@+id/cancel_image_menu"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

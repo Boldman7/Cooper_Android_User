@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/_400sdp"
+    android:background="@color/transparent_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:background="@color/transparent"
+        android:padding="@dimen/_10sdp"
+        android:layout_margin="@dimen/_15sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_sos_email_to"
+            android:textColor="@color/black_text_color"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/dark_gray"
+            android:layout_marginTop="@dimen/_3sdp"/>
+
+        <EditText
+            android:id="@+id/etEmailContent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_weight="1"
+            android:gravity="top|left"/>
+
+        <Button
+            android:id="@+id/sendEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@color/darker_blue"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/colorTextWhite"
+            android:text="@string/send"
+            android:textAllCaps="false"
+            android:layout_gravity="right"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/closeIcon"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/close_icon_red"/>
+
+</RelativeLayout>

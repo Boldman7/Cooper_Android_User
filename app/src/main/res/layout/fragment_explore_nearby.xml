@@ -1,0 +1,239 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:clickable="true"
+    android:focusable="true"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/background_color"
+        android:id="@+id/explore_nearby_title_layout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/restaurants_near_me"
+            android:textColor="@color/black_text_color"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/title_nearby"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="5dp"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_all"
+            android:layout_centerVertical="true"
+            android:textColor="@color/blue"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:id="@+id/view_all_nearby"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progress_bar_explore_nearby"
+        android:visibility="gone"
+        android:layout_below="@id/explore_nearby_title_layout"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/explore_nearby_title_layout"
+        android:text="No Results Found"
+        android:textColor="@color/black_text_color"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:padding="20dp"
+        android:visibility="gone"
+        android:id="@+id/no_results_text"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/explore_nearby_results_layout"
+        android:layout_below="@id/explore_nearby_title_layout">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dark_gray"
+        android:id="@+id/view_one"
+
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/explore_places_layout_one"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        android:layout_below="@id/view_one"
+       >
+
+        <ImageView
+            android:id="@+id/explore_places_image_one"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Name"
+            android:textColor="@color/black_text_color"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/explore_places_place_name_one"
+            android:layout_toRightOf="@id/explore_places_image_one"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Description"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textSize="14sp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/explore_places_description_one"
+            android:layout_toRightOf="@id/explore_places_image_one"
+            android:layout_below="@id/explore_places_place_name_one"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dark_gray"
+        android:id="@+id/view_two"
+        android:layout_below="@id/explore_places_layout_one"
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/explore_places_layout_two"
+        android:layout_below="@id/view_two"
+        android:visibility="gone"
+        android:background="@android:color/white"
+        >
+
+        <ImageView
+            android:id="@+id/explore_places_image_two"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Name"
+            android:textColor="@color/black_text_color"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/explore_places_place_name_two"
+            android:layout_toRightOf="@id/explore_places_image_two"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Description"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textSize="14sp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/explore_places_description_two"
+            android:layout_toRightOf="@id/explore_places_image_two"
+            android:layout_below="@id/explore_places_place_name_two"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dark_gray"
+        android:id="@+id/view_three"
+        android:visibility="gone"
+        android:layout_below="@id/explore_places_layout_two"
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/explore_places_layout_three"
+        android:layout_below="@id/view_three"
+        android:visibility="gone"
+        android:background="@android:color/white"
+      >
+
+        <ImageView
+            android:id="@+id/explore_places_image_three"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Name"
+            android:textColor="@color/black_text_color"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:id="@+id/explore_places_place_name_three"
+            android:layout_toRightOf="@id/explore_places_image_three"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Description"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/explore_places_description_three"
+            android:layout_toRightOf="@id/explore_places_image_three"
+            android:layout_below="@id/explore_places_place_name_three"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dark_gray"
+        android:layout_below="@+id/explore_places_layout_three"
+        android:id="@+id/view_four"
+        android:visibility="gone"
+        />
+    </RelativeLayout>
+</RelativeLayout>

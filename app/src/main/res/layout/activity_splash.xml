@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".Activities.SplashActivity"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_white"
+        android:text="@string/welcome_to"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:id="@+id/splash_welcome_to_text"
+        />
+
+    <ImageView
+        android:id="@+id/splash_loud_orange_image"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/splash_welcome_to_text"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/cloud_orange" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/splash_welcome_to_text"
+        android:src="@drawable/cloud_blue"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/splash_loud_blue_image"
+        />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_below="@id/splash_welcome_to_text"
+        android:src="@drawable/cooper_logo"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/splash_cooper_logo_image"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_white"
+        android:text="@string/time_awaits_you"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/splash_time_awaits_you_text"
+        android:layout_below="@id/splash_cooper_logo_image"
+        />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/splash_time_awaits_you_text"
+        android:src="@drawable/car_users_icon"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:id="@+id/splash_users_image"
+        />
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/splash_users_image"
+        android:src="@drawable/car"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/car_image"
+        />
+
+</RelativeLayout>

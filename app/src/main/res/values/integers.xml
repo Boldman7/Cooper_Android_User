@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="date_picker_mode">1</integer>
+    <integer name="time_picker_mode">1</integer>
+    <integer name="edit_text_max_len_10">10</integer>
+    <integer name="edit_text_max_len_100">100</integer>
+    <integer name="edit_text_max_len_500">500</integer>
+
+</resources>

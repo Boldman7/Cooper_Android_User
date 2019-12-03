@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_white"
+        android:text="@string/time_awaits_you"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:id="@+id/welcome_time_awaits_you_text" />
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/welcome_time_awaits_you_text"
+        android:src="@drawable/car_users_icon"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:id="@+id/welcome_users_image" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/welcome_users_image"
+        android:src="@drawable/car"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/welcome_car_image" />
+
+    <TextView
+        android:id="@+id/txtFreshDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/welcome_car_image"
+        android:textColor="@color/text_color_white"
+        android:text="@string/fresh_description"
+        android:textSize="16sp" />
+
+</RelativeLayout>

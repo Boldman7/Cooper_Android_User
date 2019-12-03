@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container_explore_activity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/lnrTitleExploreActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/closeExplore"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:tint="@android:color/white"
+                    android:src="@drawable/ic_close" />
+
+                <TextView
+                    android:id="@+id/lblTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/action_explore"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_color"
+                android:layout_below="@+id/lnrTitleExploreActivity">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/containerView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView1"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView2"
+                        android:orientation="vertical"
+                        android:background="@color/black_text_color" />
+
+                    <FrameLayout
+                        android:id="@+id/containerView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView3"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView4"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView5"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView6"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView7"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView8"
+                        android:orientation="vertical"/>
+
+                    <FrameLayout
+                        android:id="@+id/containerView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView9"
+                        android:orientation="vertical"/>
+                    <FrameLayout
+                        android:id="@+id/containerView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView10"
+                        android:orientation="vertical"/>
+                    <FrameLayout
+                        android:id="@+id/containerView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView11"
+                        android:orientation="vertical"/>
+                    <FrameLayout
+                        android:id="@+id/containerView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView12"
+                        android:orientation="vertical"/>
+                    <FrameLayout
+                        android:id="@+id/containerView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/containerView13"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="10dp"/>
+
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

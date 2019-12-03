@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.boldman.cooperuser.Activities.Sign.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonLayout"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_white"
+            android:text="@string/welcome_to"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_marginTop="40dp"
+            android:id="@+id/welcome_welcome_to_text" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/welcome_one_cooper_logo_image" />
+
+        <ImageView
+            android:id="@+id/welcome_cloud_orange_image"
+            android:layout_width="115dp"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/welcome_welcome_to_text"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="-60dp"
+            android:src="@drawable/orange_cloud" />
+
+        <ImageView
+            android:layout_width="115dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/welcome_welcome_to_text"
+            android:src="@drawable/blue_cloud"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="-65dp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/welcome_loud_blue_image" />
+
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/welcome_welcome_to_text"
+            android:src="@drawable/cooper_logo"
+            android:id="@+id/welcome_one_cooper_logo_image"
+            android:layout_centerHorizontal="true" />
+
+        <!-- Dots Layout-->
+        <LinearLayout
+            android:id="@+id/layoutDots"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"/>
+
+        <!-- Skip Button-->
+        <TextView
+            android:textAllCaps="true"
+            android:id="@+id/skip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="26dp"
+            android:gravity="end"
+            android:visibility="gone"
+            android:text="Skip"
+            android:textColor="@color/theme"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:background="@color/text_color_white"
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/social_layout"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/sign_in_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/app_blue"
+            android:text="@string/sign_in"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorTextWhite" />
+
+        <Button
+            android:id="@+id/sign_up_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/colorTextWhite"
+            android:background="@color/colorAccent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/signup" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:id="@+id/social_login_button"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/or_connect_with_social_media"
+            android:textColor="@color/colorTextWhite" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/social_layout"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:background="@color/text_color_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/term_conditions_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorPrimary"
+            android:textColorLink="@color/app_blue"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

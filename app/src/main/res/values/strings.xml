@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE
+    resources
+    [<!ENTITY appName "CoOper"><!ENTITY appNameCaps "COOPER"><!ENTITY Provider "Driver"><!ENTITY provider "driver"><!ENTITY Service "Ride"><!ENTITY service "ride">]
+    >
+<resources>
+
+    <string name="app_name">&appName;</string>
+    <!--Google map-->
+    <!--<string name="google_map_api" translatable="false">AIzaSyBUkso-TuZc34REFDl3ciFjKmuGG7P3gDI</string>-->
+    <string name="google_map_api" translatable="false">AIzaSyAsVN1AHgbMr2n3SYtNZxFiT7e1bz3tP5s</string>
+    <!--<string name="server_client_id">726412721534-g36bub5q0usj0u01j4s986aqorg2a8cu.apps.googleusercontent.com</string>-->
+
+    <!--Facebook App Id Account Kit -->
+    <string name="facebook_app_id" translatable="false">886005385069764</string>
+    <string name="fb_login_protocol_scheme">fb886005385069764</string>
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN" translatable="false">54b479158e41fb96757a1da2b61e7a00</string>
+
+    <!--Navigation Drawer -->
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Activity Email -->
+    <string name="whats_your_mail_address">What\'s your email address?</string>
+    <string name="sample_mail_id" translatable="false">name@examplecom</string>
+
+    <!--Activity Password -->
+    <string name="welcome_back">Welcome back, sign in to continue </string>
+    <string name="enter_your_password">Password</string>
+    <string name="email_address">Email Address</string>
+    <string name="country_number">Country</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="i_forgot_my_password">Forgot password?</string>
+    <string name="i_need_to_create_an_account">I need to create an account</string>
+    <string name="account_already_text">Don\'t have an account already?</string>
+    <string name="apply">APPLY</string>
+
+    <!--Activity Splash Screen -->
+    <string name="welcome_to">Welcome to</string>
+    <string name="time_awaits_you">Time Awaits You!</string>
+
+    <!--Activity Register-->
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="password">Password</string>
+    <string name="birthday">Date of birth</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="mobile_no" translatable="false">9876543210</string>
+    <string name="password_txt" translatable="false">******</string>
+    <string name="sign_verify">Sign Verify</string>
+    <string name="email_verify">Email Verfiy Code</string>
+    <string name="phone_verfity">Phone Verify Code</string>
+    <string name="verify">Verify</string>
+    <string name="email_or_phone_verify_required">Input verify code of email or phone</string>
+    <!--<string name="phone_verify_required">Input your phone verify code</string>-->
+    <string name="email_validation_error">E_VALIDATION_ERROR</string>
+    <string name="alert_re_signup">Do you want to resignup?</string>
+    <string name="re_signup">SignUp</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset_pwd_dialog">Your password has reseted successfully. Please login with your new password.</string>
+
+
+    <!-- Activity ForgetPassword -->
+    <string name="recover_password">Enter your mail ID for recovery</string>
+
+    <!-- Coupon Fragment-->
+    <string name="enter_the_coupon">Enter coupon code</string>
+    <string name="add_coupon">ADD COUPON</string>
+    <string name="add_coupon_code">Add Coupon code</string>
+
+
+    <!--Welcome screen-->
+    <string name="sign_in">Sign in</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign up</string>
+
+    <string name="fresh">W e l c o m e</string>
+    <string name="search">S c h e d u l e</string>
+    <string name="bookmark">D r i v e r s</string>
+
+    <string name="introducing">Introducing</string>
+    <!--<string name="fresh_description">Services to transport you where you need to go. A lot can happen, on our ride.</string>-->
+    <!--<string name="search_description">Take a ride whenever and wherever you want. Plan and Schedule for us to pick you up.</string>-->
+    <!--<string name="bookmark_description">We have the most friendly drivers who will go the extra mile for you.</string>-->
+    <string name="fresh_description">CoOper aims to pioneer a sharing economy in The Bahamas. This involves on-demand peer-to-peer services,within a network of ride-sharing.</string>
+    <string name="search_description">Use CoOper to get to your destination of choice or to explore the attractions,events and other venues in The Bahamas. Available on demand or upon scheduled
+    request. On time every time.</string>
+    <string name="bookmark_description">Our screened and trained drivers are qualified and friendly and they will make sure you get to your destination on time, in style and in a good mood! </string>
+
+    <!-- Edit Activity-->
+    <string name="edit_profile">Edit Account</string>
+    <string name="change_password">Looking to change password?</string>
+    <string name="save">SAVE</string>
+    <string name="update_success">Profile Updated</string>
+
+
+    <!-- Home Fragment-->
+    <string name="where_to_go">Where would you like to go?</string>
+    <string name="extend_trip">Extend Trip?</string>
+    <string name="selected_option">Economy</string>
+    <string name="selected_payment_mode">Cash</string>
+    <string name="wallet_payment">Wallet payment</string>
+    <string name="cash_payment">Cash payments in USD/BSD</string>
+    <string name="select_service">Select Service</string>
+    <string name="change">Change</string>
+    <string name="request_xuber">CONFIRM COOL</string>
+    <string name="pickup_location">Pickup Location</string>
+    <string name="drop_location">Drop Location</string>
+    <string name="current_location">Current Location</string>
+    <string name="explore_attractions_near_you">Explore Attractions Near You</string>
+    <string name="promotions">Promotions</string>
+    <string name="add_promo_gift_code">Add Promo/Gift Code</string>
+    <string name="credit_cards">Credit Cards</string>
+
+    <!--Schedule Layout -->
+    <string name="schedule">Schedule a &Service;</string>
+    <string name="change_date">Change</string>
+    <string name="sample_date">Choose a date</string>
+    <string name="sample_time">Choose a time</string>
+    <string name="next">Schedule Request</string>
+    <string name="different_time">You can\'t schedule in past timings, please choose different time</string>
+    <string name="choose_date_time">Please choose date and time for schedule</string>
+    <string name="upcoming_trips">Upcoming</string>
+    <string name="past_trips">Past</string>
+
+    <!--Service List Item -->
+    <string name="service_list_item" translatable="false">Jaguar</string>
+    <string name="no_service">Service not available at this location.</string>
+    <string name="no_route">There is no route, choose different destination</string>
+    <string name="choose_payment">Choose payment method</string>
+
+    <!--Approximate -->
+    <string name="approximate">Estimated Fare</string>
+    <string name="eta_time">ETA</string>
+    <string name="sample_rate" translatable="false">$1234</string>
+    <string name="include_all">Including all other charges</string>
+
+    <!-- Confirm your pickup -->
+    <string name="confirm_your_pickup">Confirm your Pickup</string>
+    <string name="confirm">Confirm Pickup</string>
+    <string name="close">Close</string>
+    <string name="sample_address">110, StJoseph Chruch, Richards, road Newyork</string>
+    <string name="done">Done</string>
+
+    <!-- Waiting for provider -->
+    <string name="looking_for_ride">Finding &Service;....</string>
+    <string name="cancel_ride">Cancel &service;</string>
+    <string name="share">Share</string>
+    <string name="cancel_ride_alert">Are you sure want to cancel the &service;?</string>
+    <string name="no_providers_found">No one found at the moment to take your &service;, Please try after sometime</string>
+    <string name="no_drivers_found">No drivers available to take your trip</string>
+    <string name="driver_busy">Your &Service; was cancelled by the &Provider;.Please contact us for support</string>
+    <string name="retry">Retry Now</string>
+    <string name="try_later">Later</string>
+
+
+    <!--Driver Accepted-->
+    <string name="sample_name">Will Smith</string>
+    <string name="sample_service">BMW</string>
+    <string name="call_btn">Call</string>
+    <string name="chat_btn">Chat</string>
+    <string name="cancel_trip">Cancel Trip</string>
+    <string name="surge_pricing">Due to peak hours, charges will be vary based on availability of providers</string>
+    <string name="pickup_drop">Please enter both pickup and drop locations</string>
+
+
+    <!--Payment Fragment-->
+    <string name="payment">Payment</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="payment_methods_past">Payment Method</string>
+    <string name="add_payments">Add Card for payments</string>
+    <string name="add_payment_method">Add Payment Method</string>
+    <string name="card_details">Card Details</string>
+    <string name="card_number">Credit/Debit Card Number</string>
+    <string name="sample_card_no" translatable="false">XXXX - XXXX - XXXX - XXXX</string>
+    <string name="month_and_year" translatable="false">MM/YY</string>
+    <string name="cvv">CVV</string>
+    <string name="add">Add My Card</string>
+    <string name="enter_card_details">Card details not valid</string>
+    <string name="are_you_sure">Are you sure want to remove?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+
+    <!--Status -->
+    <string name="arrived">&Provider; has arrived at your location</string>
+    <string name="picked_up">you are on &service;</string>
+    <string name="dropped">&Service; has completed</string>
+
+    <!--Your Trips-->
+    <string name="history">History</string>
+    <string name="comments">Comments</string>
+    <string name="no_trips">You have no past trips</string>
+    <string name="no_upcoming_trips">You have no upcoming trips</string>
+    <string name="your_trips">Your Trips</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="past">Past</string>
+    <string name="trip_detail">Trip Detail</string>
+
+
+    <!--Invoice -->
+    <string name="invoice">Invoice</string>
+    <string name="base_price">Base fare</string>
+    <string name="booking_id">Booking ID</string>
+    <string name="sample_base_price" translatable="false">0</string>
+    <string name="sample_distance" translatable="false">1 KM</string>
+    <string name="sample_time_travel" translatable="false">1 hr</string>
+    <string name="extra_price">Extra</string>
+    <string name="tax">Tax</string>
+    <string name="wallet_detection">Wallet Detection</string>
+    <string name="discount_detection">Discount Applied</string>
+    <string name="total">Total</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="distance_price">Distance fare</string>
+
+
+    <!--Rate provider-->
+    <string name="rate_provider">Rate your trip with</string>
+    <string name="write_your_comment">Write your comment</string>
+    <string name="submit">Submit</string>
+
+
+    <!-- Source and destination-->
+    <string name="source_location">Your location</string>
+    <string name="destination_location">Where to?</string>
+
+    <!--Show Dailog-->
+    <string name="connect_to_network">Connect to network or quit</string>
+    <string name="change_pwd_dialog">Your password has updated successfully. Please login with your new password.</string>
+    <string name="cencel_request">Are you sure you want to cancel the &service;?</string>
+    <string name="connect_to_wifi">Connect to WIFI</string>
+    <string name="quit">Quit</string>
+
+
+    <!-- Error Messages-->
+    <string name="server_connect_error">Server connect error</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="something_went_wrong_net">Something went wrong, Please check internet connection</string>
+    <string name="oops_connect_your_internet">Oops! Connect your Internet</string>
+    <string name="server_down">Unable to reach server</string>
+    <string name="please_try_again">Please try again</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="email_validation">Enter your email ID</string>
+    <string name="not_valid_email">Not a valid email ID</string>
+    <string name="password_validation">Password could not be left empty</string>
+    <string name="first_name_empty">First name required</string>
+    <string name="last_name_empty">Last name required</string>
+    <string name="country_code_empty">Country code required</string>
+    <string name="mobile_number_empty">Mobile number required</string>
+    <string name="mobile_number_validation">Mobile number must have numbers between 10 to 20 digits</string>
+    <string name="your_cards">Your Cards</string>
+    <string name="enter_details_register">Enter your details to register</string>
+    <string name="fb_cancel">Facebook login cancelled</string>
+    <string name="fb_error">Facebook login failed</string>
+    <string name="google_login">Google login failed</string>
+    <string name="social_cancel">Social login cancelled</string>
+    <string name="social_failed">Social login failed</string>
+    <string name="registration_failed">Registration cancelled</string>
+
+    <!--True or False -->
+    <string name="True" translatable="false">true</string>
+    <string name="False" translatable="false">false</string>
+
+    <string name="add_money_using">Add money using</string>
+    <string name="add_money">Add Card</string>
+
+    <!--Coupon Activity-->
+    <string name="not_vaild_coupon">Coupon is not valid or may expired</string>
+    <string name="coupon_added">Coupon applied successfully</string>
+    <string name="add_coupon_txt">Add Coupon</string>
+    <string name="added_coupon">Coupon\'s applied by you</string>
+    <string name="already_in_use_coupon">Coupon already used by you</string>
+    <string name="expired_coupon">Sorry, coupon has expired</string>
+    <string name="off">OFF</string>
+    <string name="the_applied_coupon">The coupon code applied is</string>
+    <string name="valid_until">Valid until</string>
+    <string name="enter_the_code">Enter the coupon code</string>
+    <string name="promo_gift_code">Promo/Gift Code</string>
+    <string name="enter_promo_code">Enter Promo/Gift Code</string>
+    <string name="add_code">Add Code</string>
+
+    <!--Wallet Activity-->
+    <string name="wallet_balance">Your wallet amount is</string>
+
+
+    <!--Change Password-->
+    <string name="change_password_title">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm New Password</string>
+    <string name="please_enter_current_pass">Please enter current password</string>
+    <string name="please_enter_new_pass">Please enter new password</string>
+    <string name="please_enter_confirm_pass">Please enter confirmation password</string>
+    <string name="different_passwords">Password doesn\'t match</string>
+    <string name="commision">Service charge</string>
+    <string name="request_cancel">You have cancelled the request</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Photos</item>
+        <item>Movies</item>
+        <item>Notifications</item>
+        <item>Settings</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="valid_image">No image found</string>
+    <string name="otp_validation">Enter OTP field is required</string>
+    <string name="inncorrect_otp">Incorrect OTP</string>
+    <string name="confirm_password_validation">Password mismatch</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="note">Note : Please enter the otp send to your registered email address</string>
+    <string name="secrete_code">Enter OTP</string>
+    <string name="connect_with_social_media">Or connect with social</string>
+    <string name="logout_alert">Are you sure want to logout?</string>
+    <string name="distance_travelled">Distance Travelled</string>
+    <string name="time_taken">Time Taken</string>
+    <string name="extend_trip_alert">Do you want to extend the trip with the selected location?</string>
+    <string name="choose_social">Choose an account</string>
+    <string name="facebook_name">Facebook</string>
+    <string name="google_name">Google</string>
+    <string name="schdule_accept">Your request has responded by the driver</string>
+    <string name="no_comments">No comment available</string>
+    <string name="pin_location">Set pin location</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="home_location">Home</string>
+    <string name="delete">Delete</string>
+    <string name="favorites">Favorites</string>
+    <string name="language">Change Language</string>
+    <string name="add_home_location">Add Home</string>
+    <string name="work_location">Work</string>
+    <string name="store_location">Store</string>
+    <string name="add_work_location">Add Work</string>
+    <string name="add_store_location">Add Store</string>
+    <string name="save_location">Saved places</string>
+    <string name="type">Model</string>
+    <string name="emaergeny_call">Are you sure want to proceed with Emergency call?</string>
+    <string name="user_no_mobile">No mobile number</string>
+    <string name="profile">Profile</string>
+    <string name="reason_to_cancel">Reason for cancellation</string>
+    <string name="reason">Drop a message</string>
+
+    <!--Activity Help-->
+    <string name="help_msg">Our team person contact\n you soon!</string>
+    <string name="help_title">&appNameCaps; Help</string>
+    <string name="schedule_request">Schedule &Service;</string>
+    <string name="surge_pricing_title">Due to high demand price may vary</string>
+    <string name="request_now">Ride now</string>
+    <string name="help">Help</string>
+    <string name="book_name">Booking ID</string>
+    <string name="password_size">Password size must be atleast 6</string>
+    <string name="sorry_for_inconvinent">Sorry for inconvenient,Our assisants are busy right now</string>
+    <string name="email_exist">The email has already been taken</string>
+    <string name="first_name_no_number">First name do not accept numbers</string>
+    <string name="last_name_no_number">Last name do not accept numbers</string>
+    <string name="birthday_validation_error">Enter the date of birth correctly!</string>
+    <string name="fcm_token_required">The fcm token field is required.</string>
+    <string name="ok">Ok</string>
+    <string name="use_wallet_amount">Use wallet amount</string>
+    <string name="arriving">&Provider; accepted your request.</string>
+    <string name="view_invoice">View receipt</string>
+    <string name="payment_set_as_card">Payment mode changed to card</string>
+    <string name="payment_set_as_cash">Payment mode changed to cash</string>
+    <string name="walletHistory">Wallet history</string>
+    <string name="couponHistory">Coupon history</string>
+    <string name="passbook">Passbook</string>
+    <string name="settings">Settings</string>
+    <string name="no_wallet_history">No wallet history available!</string>
+    <string name="no_coupon_history">No coupon history available!</string>
+    <string name="new_version_available">New version available</string>
+    <string name="update_to_continue">Please, update app to new version.</string>
+    <string name="update">Update</string>
+    <string name="no_thanks">No, thanks</string>
+    <string name="new_password_validation">New password should not be same as old password.</string>
+    <string name="password_validation1">Password must contains minimum 8 characters, maximum 16 characters</string>
+    <string name="password_validation2">Password must contains minimum 8 characters, maximum 16 characters and atleast 1 Uppercase,
+         1 Lowercase, 1 Number and 1 Special Character</string>
+    <string name="add_amount">ADD AMOUNT</string>
+    <string name="enter_the_amount">Enter the amount</string>
+    <string name="amount_alert">Please enter the amount</string>
+    <string name="add_money_to_wallet">ADD MONEY TO THE WALLET</string>
+    <string name="version">Version</string>
+    <string name="source_dest_not_same">Source and Destination address should not be same!</string>
+    <string name="language_update">Updating Language... Please wait</string>
+
+    <!--Activity Begin-->
+    <string name="get_moving_with_tranxit">Get moving with &appName; Services</string>
+    <string name="enter_your_mail_id">Enter your Access Key</string>
+    <string name="enter_username">Please enter your username</string>
+    <string name="enter_your_user_name">Enter your Username</string>
+    <string name="or_connect_with_social_media">Or connect with social</string>
+    <string name="enter_access_key">Please enter your access key</string>
+    <string name="fetching_server">Fetching from server... Please wait...</string>
+    <string name="enter_coupon">Enter a coupon</string>
+    <string name="demo_expired">Your demo has been expired. Please contact our Tranxit team for more details.</string>
+
+    <string name="timed_out">Timed out!</string>
+    <string name="delete_loc">Are you sure you want to delete this location?</string>
+    <string name="otp" translatable="false">Ride Code :</string>
+    <string name="server_error" translatable="false">The server encountered an internal error or misconfiguration and was unable to complete your request.</string>
+    <string name="total_distance" translatable="false">Total Distance</string>
+    <string name="available_wallet_balance" translatable="false">Available Wallet Balance</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="confirm_password_mismatched">Password mismatched!</string>
+    <string name="password_confirm">Confirm Password</string>
+    <string name="female">Female</string>
+
+
+    <!-- Explore Activity-->
+    <string name="restaurants_near_me">Restaurants Near Me</string>
+    <string name="view_all">View All</string>
+    <string name="attractions_near_me">Attractions Near Me</string>
+    <string name="shopping_near_me">Shopping Near Me</string>
+    <string name="health_and_medical">Health And Medical</string>
+
+    <!-- Explore Place Detail Fragment-->
+    <string name="visit_website_text">Visit the website for more information.</string>
+    <string name="cooper_me_here">Cooper Me Here</string>
+    <string name="website">Website</string>
+
+    <!-- Fragment Menu-->
+    <string name="make_money_driving">Make money driving</string>
+    <string name="food_and_coffee_delivery">Food &amp; Coffee Delivery - Coming Soon</string>
+    <string name="free_rides">Free Rides</string>
+
+    <string name="legal">Legal</string>
+
+    <!--Nav items-->
+    <string name="action_payment">Payment</string>
+    <string name="action_trips">Your trips</string>
+    <string name="action_coupon">Coupon</string>
+    <string name="action_wallet">Wallet</string>
+    <string name="action_help">Help</string>
+    <string name="action_share">Share</string>
+    <string name="action_explore">Explore</string>
+    <string name="action_logout">Logout</string>
+
+    <!-- Activity Settings-->
+    <string name="edit_user_profile">Edit Profile</string>
+    <string name="add_home">Add Home</string>
+    <string name="add_work">Add Work</string>
+    <string name="more_saved_places">More Saved Places</string>
+    <string name="privacy_settings">Privacy Settings</string>
+    <string name="sign_out">Sign Out</string>
+
+    <!-- Help Activity-->
+    <string name="additional_topics">Additional topics</string>
+    <string name="trip_and_fair_review">Trip and fare review</string>
+    <string name="account_and_payment_option">Account and Payment Options</string>
+    <string name="a_guide_to_cooper">A Guide to CoOper</string>
+    <string name="signing_up">Signing Up</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="more">More</string>
+
+    <!-- Help Fragment -->
+    <string name="help_detail_title">Using CoOper promotions, coupons, and credits</string>
+    <string name="help_details_description_one">CoOper offers special promotions to provide discounts on rides to riders. To apply a promotional discount to a trip\'s fare,
+    enter the promo code anytime before your trip begins.</string>
+    <string name="help_details_description_two">Valid promo codes are automatically applied in reverse order. You\'ll be unable to select your preferred promo code when you add more than one.
+    Instead, your most recently added promo code will be applied to your current or next trip. A promo code\'s value will only apply to one trip.</string>
+
+    <!-- Your trips list item-->
+    <string name="cost">Cost</string>
+    <string name="distance">Distance</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="driver">Driver</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="accepted_by_driver">Your request is accepted by driver. Do you agree?</string>
+    <string name="driver_arrived">The accepted driver arrived.</string>
+    <string name="start_ride">Start ride!</string>
+    <string name="set_destination">Set Destination!</string>
+    <string name="password_old_not_same">Old password is not correct.</string>
+    <string name="request_nearest_driver">REQUEST NEAREST DRIVER</string>
+    <string name="back">BACK</string>
+    <string name="request">REQUEST</string>
+    <string name="wallet_smaller_than_zero">Your wallet balance is smaller than 0! Your payment mode is set CASH automatically.</string>
+    <string name="remember_password">Remember password?</string>
+
+    <string name="problem_google_map_connection">There is a problem with connection of Google Map.</string>
+    <string name="problem_google_map_response">There is a problem with response of Google Map.</string>
+
+    <string name="not_exist_driver_of_service">No drivers of that service</string>
+    <string name="audio_call">Audio Call</string>
+    <string name="video_call">Video Call</string>
+    <string name="call_help">Call for help</string>
+    <string name="write_help">Write for help</string>
+    <string name="send_sos_email_to">Send SOS email to: </string>
+    <string name="send">Send</string>
+    <string name="world_map">World Map</string>
+    <string name="start">Start</string>
+    <string name="payment_method">Payment method</string>
+    <string name="topup">Top up</string>
+    <string name="app_wallet">App Wallet</string>
+    <string name="cash">Cash</string>
+    <string name="confirm_your_payment_method">Confirm your payment method</string>
+    <string name="app_wallet_mode_is_selected">App wallet mode is selected.</string>
+    <string name="cash_mode_is_selected">Cash mode is selected.</string>
+    <string name="switch_method">Switch method</string>
+    <string name="wallet">Wallet</string>
+    <string name="balance">balance: </string>
+
+    <!-- QB Video Chat -->
+
+    <string name="sender_id"></string>
+
+    <string name="current_version">0.9.1</string>
+    <string name="splash_app_title">Sample Video Chat Java</string>
+    <string name="splash_create_session_error">Create session errors:</string>
+
+    <!-- Dialogs strings -->
+    <string name="dlg_signal_error">Disconnected… Please check your Internet connection!</string>
+    <string name="dlg_relogin_wait">You are still connecting.. Please try once more</string>
+    <string name="dlg_login">Login…</string>
+    <string name="dlg_sign_in">Sign In…</string>
+    <string name="dlg_updating_user">Updating user…</string>
+    <string name="dlg_creating_new_user">Creating new user…</string>
+    <string name="dlg_logout">Logout…</string>
+    <string name="dlg_loading_opponents">Loading opponents…</string>
+    <string name="dlg_retry">Retry</string>
+    <string name="dlg_allow">Allow</string>
+    <string name="login_chat_retry">Trying Relogin. Please wait a moment</string>
+
+    <!-- Notification -->
+    <string name="notification_title">You have an active call</string>
+    <string name="notification_text">Touch takes you back to the call %1$s</string>
+
+    <!-- Errors strings -->
+    <string name="error">Error</string>
+    <string name="error_credentials_empty">Credentials are wrong or empty. You have to set:
+        Application ID, Authentification Key, Authentification Secret, Account Key in constants in App.java
+        and you have to set Sender ID in the string resources to launch application.
+        If you haven\'t them you can register new account and application at https://admin.quickblox.com
+        then put Application credentials from Overview page + Account key from https://admin.quickblox.com/account/settings</string>
+    <string name="login_data_error">Wrong login</string>
+    <string name="username_data_error">Wrong username</string>
+    <string name="error_max_opponents_count">You can select up to %d opponents</string>
+    <string name="sign_up_error">Error creating new user, please try again</string>
+    <string name="sign_in_error">Error SignIn user, please try again</string>
+    <string name="sign_in_error_with_error">Sign In error. Error</string>
+    <string name="sign_in_error_without_error">Sign In error</string>
+    <string name="logout_user_with_error">Logout user error. Error</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="no_connection_error">Connection failed. Please check your internet connection.</string>
+    <string name="no_responce_timeout">No response received within reply timeout</string>
+
+    <string name="error_empty_login">Login can not be empty</string>
+    <string name="error_empty_chat_room_name">Chat room name can not be empty</string>
+    <string name="error_permission_video">You should allow Camera permission</string>
+    <string name="error_permission_audio">You should allow Microphone permission</string>
+
+    <string name="login_chat_login_error">Login Chat error. Please relogin. Error</string>
+    <string name="update_user_error">Update user error. Error</string>
+    <string name="loading_users_error">Loading users error. Error</string>
+
+    <string name="permission_unavailable">%s is not available now!</string>
+
+    <string name="field_name_user_login">User name</string>
+    <string name="field_name_user_fullname">User Full Name</string>
+
+    <string name="error_name_must_not_contain_special_characters_from_app">%1$s must contain 3 &#8212; %2$s alphanumeric Latin characters without spaces, the first char must be a letter</string>
+
+    <!-- menu -->
+    <string name="action_start_login">Done</string>
+    <string name="action_screen_share">Screen share</string>
+    <string name="action_update_opponens_list">Update opponents list</string>
+    <string name="action_start_video_call">Video call</string>
+    <string name="action_start_audio_call">Audio call</string>
+    <string name="action_dialogs_app_info">App Info</string>
+
+    <!-- action bar -->
+    <string name="actionbar_title_settings">Settings</string>
+    <string name="title_login_activity">Enter to Videochat</string>
+    <string name="subtitle_text_logged_in_as">Logged in as %s</string>
+    <string name="title_one_user_selected">%s user selected</string>
+    <string name="tile_many_users_selected">%s users selected</string>
+
+    <string name="incoming_call">Incoming Call</string>
+    <string name="also_on_call">Also on call:</string>
+    <string name="edit_opponents_list">Edit opponents list</string>
+    <string name="incoming_audio_call">Incoming Audio Call</string>
+    <string name="incoming_video_call">Incoming Video Call</string>
+    <string name="outgoing_audio_video_call_title">%s\n\nRinging</string>
+    <string name="user_list_on_call">User 1, User 2, User 3, User 4, User 5, User 6</string>
+
+    <string name="opponent_pending">Pending</string>
+    <string name="opponent_closed">Closed</string>
+    <string name="text_incoming_audio_call">Incoming Audio Call</string>
+    <string name="text_incoming_video_call">Incoming Video Call</string>
+    <string name="text_status_connect">Connect…</string>
+    <string name="text_status_checking">Checking…</string>
+    <string name="text_status_connected">Connected</string>
+    <string name="text_status_disconnected">Disconnected</string>
+
+    <string name="text_status_rejected">Rejected</string>
+    <string name="text_status_no_answer">No answer</string>
+    <string name="text_status_hang_up">Hung up</string>
+    <string name="text_status_closed">Closed</string>
+    <string name="text_status_time_out">Time Out</string>
+    <string name="text_status_failed">Failed</string>
+
+    <string name="text_welcoming_message">Please enter Login and Username.</string>
+    <string name="hint_user_login">Login</string>
+    <string name="hint_user_full_name">Username</string>
+
+    <string name="text_select_users_to_call">Select users you want to call</string>
+
+    <string name="call_was_stopped_connection_lost">Call was stopped because connection was lost</string>
+    <string name="connection_lost">Connection lost</string>
+
+    <string name="text_push_notification_message">"%s is calling you"</string>
+
+    <!-- Settings strings. -->
+    <string name="title_video_category">Video</string>
+    <string name="title_call_settings_category">Call Settings</string>
+
+    <string name="pref_default_value">Default</string>
+    <integer name="pref_default_int_value">0</integer>
+
+    <string name="pref_default_camera_key">default_camera_preference</string>
+    <string name="pref_default_camera_title">Default Camera</string>
+    <string name="pref_default_camera_dlg">Select default camera</string>
+    <string name="pref_default_camera_default">0</string>
+
+    <string name="pref_frame_rate_key">frame_rate</string>
+    <string name="pref_frame_rate_title">Frame Rate (0&#8211;30)</string>
+    <string name="pref_frame_rate_default">0</string>
+    <integer name="pref_frame_rate_min_value">0</integer>
+    <integer name="pref_frame_rate_max_value">30</integer>
+    <integer name="pref_frame_rate_stepSize">5</integer>
+
+    <string name="pref_resolution_key">resolution_preference</string>
+    <string name="pref_resolution_title">Video Format</string>
+    <string name="pref_resolution_dlg">Enter RTC local video resolution</string>
+    <string name="pref_resolution_default">-1</string>
+
+    <string name="pref_startbitrate_key">startbitrate_preference</string>
+    <string name="pref_startbitrate_title">Start bitrate setting</string>
+    <string name="pref_startbitrate_dlg">Start bitrate setting</string>
+    <string name="pref_startbitrate_default">Default</string>
+
+    <string name="pref_startbitratevalue_key">startbitratevalue_preference</string>
+    <string name="pref_startbitratevalue_title">Bandwidth (0&#8211;2000)</string>
+    <string name="pref_startbitratevalue_default">0</string>
+    <integer name="pref_startbitratevalue_min_value">0</integer>
+    <integer name="pref_startbitratevalue_max_value">2000</integer>
+    <integer name="pref_startbitratevalue_step_size">100</integer>
+
+    <string name="pref_disable_built_in_aec_key">disable_built_in_aec_preference</string>
+    <string name="pref_disable_built_in_aec_title">Disable built-in AEC</string>
+    <string name="pref_disable_built_in_aec_dlg">Disable built-in AEC</string>
+    <string name="pref_disable_built_in_aec_default">false</string>
+    <string name="pref_built_in_aec_not_available">Built-in AEC is not available</string>
+
+    <string name="pref_opensles_key">opensles_preference</string>
+    <string name="pref_opensles_title">Use OpenSL ES for audio playback</string>
+    <string name="pref_opensles_dlg">Use OpenSL ES for audio playback</string>
+    <string name="pref_opensles_default">false</string>
+
+    <string name="pref_noaudioprocessing_key">audioprocessing_preference</string>
+    <string name="pref_noaudioprocessing_title">Disable audio processing</string>
+    <string name="pref_noaudioprocessing_dlg">Disable audio processing pipeline</string>
+    <string name="pref_noaudioprocessing_default">false</string>
+
+    <string name="pref_manage_speakerphone_by_proximity_key">manage_speakerphone_by_proximity_preference</string>
+    <string name="pref_manage_speakerphone_by_proximity_title">Manage Speaker Phone by Proximity Sensor</string>
+    <string name="pref_manage_speakerphone_by_proximity_dlg">Manage Speaker Phone by Proximity Sensor</string>
+    <string name="pref_manage_speakerphone_by_proximity_summary">Enables managing of Speaker Phone by Proximity Sensor for Audio calls</string>
+    <string name="pref_manage_speakerphone_by_proximity_default">false</string>
+
+    <!--Call Settings-->
+    <string name="pref_answer_time_interval_key">answer_time_interval</string>
+    <string name="pref_answer_time_interval_title">Answer Time Interval (15&#8211;90s)</string>
+    <string name="pref_answer_time_interval_default_value">60</string>
+    <integer name="pref_answer_time_interval_min_value">15</integer>
+    <integer name="pref_answer_time_interval_max_value">90</integer>
+    <integer name="pref_answer_time_interval_step_size">5</integer>
+
+    <string name="pref_disconnect_time_interval_key">disconnect_time_interval</string>
+    <string name="pref_disconnect_time_interval_title">Disconnect Time Interval (10&#8211;90s)</string>
+    <string name="pref_disconnect_time_interval_default_value">10</string>
+    <integer name="pref_disconnect_time_interval_min_value">10</integer>
+    <integer name="pref_disconnect_time_interval_max_value">90</integer>
+    <integer name="pref_disconnect_time_interval_step_size">5</integer>
+
+    <string name="pref_dialing_time_interval_key">Dialing_time_interval</string>
+    <string name="pref_dialing_time_interval_title">Dialing Time Interval (3&#8211;10s)</string>
+    <string name="pref_dialing_time_interval_default_value">5</string>
+    <integer name="pref_dialing_time_interval_min_value">3</integer>
+    <integer name="pref_dialing_time_interval_max_value">10</integer>
+    <integer name="pref_dialing_time_interval_step_size">1</integer>
+
+    <string name="pref_videocodec_key">videocodec_preference</string>
+    <string name="pref_videocodec_title">Default video codec</string>
+    <string name="pref_videocodec_dlg">Select default video codec</string>
+    <string name="pref_videocodec_default">0</string>
+
+    <string name="pref_hwcodec_key">hwcodec_preference</string>
+    <string name="pref_hwcodec_title">Video codec hardware acceleration</string>
+    <string name="pref_hwcodec_default">true</string>
+
+    <string name="pref_value_enabled">Enabled</string>
+    <string name="pref_value_disabled">Disabled</string>
+
+    <string name="pref_room_server_url_key">room_server_url_preference</string>
+    <string name="pref_room_server_url_title">Room server URL.</string>
+    <string name="pref_room_server_url_dlg">Enter a room server URL.</string>
+    <string name="pref_room_server_url_default" translatable="false">https://apprtc.appspot.com</string>
+
+    <string name="pref_displayhud_key">displayhud_preference</string>
+    <string name="pref_displayhud_title">Display call statistics.</string>
+    <string name="pref_displayhud_dlg">Display call statistics.</string>
+    <string name="pref_displayhud_default" translatable="false">false</string>
+    <string name="pref_audiocodec_key">pref_audio_codec</string>
+    <string name="pref_audiocodec_title">Default audio codec</string>
+    <string name="pref_audiocodec_def">ISAC</string>
+    <string name="pref_audiocodec_dlg">Select default audio codec</string>
+    <string name="pref_version">QuickBlox WebRTC\nBuild version 1.12</string>
+    <string name="btn_screen_capture">screenShot</string>
+    <string name="accepted">Accepted</string>
+    <string name="connection_was_lost">Connection was lost</string>
+
+    <string name="opponents">and %s other</string>
+    <string name="opponent">and %s </string>
+    <string name="ringing">Ringing</string>
+    <string name="stop_share">Stop</string>
+    <string name="camera_swicth_failed">\"Failed switch camera\"</string>
+
+    <!-- App info -->
+    <string name="appinfo_application_version">Application version:</string>
+    <string name="appinfo_qbsdk_version">QuickBlox SDK version:</string>
+    <string name="appinfo_application_id">Application ID:</string>
+    <string name="appinfo_authorization_key">Authorization key:</string>
+    <string name="appinfo_authorization_secret">Authorization secret:</string>
+    <string name="appinfo_account_key">Account key:</string>
+    <string name="appinfo_api_domain">API domain:</string>
+    <string name="appinfo_chat_domain">Chat domain:</string>
+    <string name="appinfo_title">App Info</string>
+    <string name="appinfo_qa_verion">QA version:</string>
+
+
+</resources>

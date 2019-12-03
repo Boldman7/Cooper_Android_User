@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/explore_places_list_item_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="3dp">
+
+    <ImageView
+        android:id="@+id/explore_places_list_item_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Place Name"
+        android:textColor="@color/black_text_color"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:id="@+id/explore_places_list_item_place_name"
+        android:layout_toRightOf="@id/explore_places_list_item_image"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Place Description"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:textSize="14sp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/explore_places_list_item_place_description"
+        android:layout_toRightOf="@id/explore_places_list_item_image"
+        android:layout_below="@id/explore_places_list_item_place_name"/>
+</RelativeLayout>
