@@ -24,8 +24,10 @@ import com.boldman.cooperuser.Model.YourTrips;
 import com.boldman.cooperuser.R;
 import com.boldman.cooperuser.Utils.GlobalConstants;
 import com.boldman.cooperuser.Utils.Utils;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -111,52 +113,8 @@ public class PastTrips extends Fragment {
 
                             yourTripsList = new ArrayList<>();
 
-                            for(int i = 0; i < rides.length(); i ++){
-                                JSONObject ride = rides.getJSONObject(i);
-
-                                YourTrips trip = new YourTrips();
-
-                                try {
-                                    trip.setFirstname( ride.getString("firstname"));
-                                } catch (Exception e){
-                                    trip.setFirstname("");
-                                }
-                                try {
-                                    trip.setLastname( ride.getString("lastname"));
-                                } catch (Exception e){
-                                    trip.setLastname("");
-                                }
-                                try {
-                                    trip.setDriver_avg_rating( ride.getDouble("driver_avg_rating"));
-                                } catch (Exception e){
-                                    trip.setDriver_avg_rating(0);
-                                }
-                                try {
-                                    trip.setFinish_at( ride.getString("finish_at"));
-                                } catch (Exception e){
-                                    trip.setFinish_at("");
-                                }
-                                try {
-                                    trip.setPayment_method(ride.getString("payment_method"));
-                                } catch (Exception e){
-                                    trip.setPayment_method("CASH");
-                                }
-                                try {
-                                    trip.setPay_amount((float) ride.getDouble("pay_amount"));
-                                } catch (Exception e){
-                                    trip.setPay_amount(0);
-                                }
-                                try {
-                                    trip.setId(ride.getInt("id"));
-                                } catch (Exception e){
-                                    trip.setId(0);
-                                }
-
-                                yourTripsList.add(trip);
-                            }
-//
-//                            yourTripsList = new Gson().fromJson(service_type.toString(), new TypeToken<List<YourTrips>>() {
-//                            }.getType());
+                            yourTripsList = new Gson().fromJson(rides.toString(), new TypeToken<List<YourTrips>>() {
+                            }.getType());
 
                             pastTripAdapter = new PastTripsAdapter(getContext(), yourTripsList,
                                     selectedTrip -> {

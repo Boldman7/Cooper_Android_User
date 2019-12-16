@@ -70,6 +70,7 @@
     <string name="add_coupon">ADD COUPON</string>
     <string name="add_coupon_code">Add Coupon code</string>
 
+    <string name="exit_confirm">Are you sure you want to logout?</string>
 
     <!--Welcome screen-->
     <string name="sign_in">Sign in</string>
@@ -211,10 +212,13 @@
     <string name="tax">Tax</string>
     <string name="wallet_detection">Wallet Detection</string>
     <string name="discount_detection">Discount Applied</string>
+    <string name="discount">Discount</string>
     <string name="total">Total</string>
     <string name="pay_now">Pay Now</string>
     <string name="distance_price">Distance fare</string>
-
+    <string name="sub_total">Subtotal</string>
+    <string name="sub_total2">Subtotal2</string>
+    <string name="vat">VAT</string>
 
     <!--Rate provider-->
     <string name="rate_provider">Rate your trip with</string>
@@ -744,5 +748,6 @@
     <string name="appinfo_title">App Info</string>
     <string name="appinfo_qa_verion">QA version:</string>
 
+    <string name="transaction_history">Transaction History</string>
 
 </resources>

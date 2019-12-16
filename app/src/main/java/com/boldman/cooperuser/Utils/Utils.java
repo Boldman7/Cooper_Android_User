@@ -20,6 +20,7 @@ import com.boldman.cooperuser.Model.AccessDetails;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -183,5 +184,11 @@ public class Utils {
         Canvas canvas = new Canvas(bm);
         canvas.drawPicture(pd.getPicture());
         return bm;
+    }
+
+    public static double roundTwoDecimals(double d)
+    {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
     }
 }

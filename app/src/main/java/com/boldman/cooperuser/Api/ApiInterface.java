@@ -148,6 +148,10 @@ public interface ApiInterface {
     Call<ResponseBody> doSendSOSEmail(@Body JsonObject body);
 
     @Headers("Content-Type: application/json")
+    @POST("user/cancel_ride")
+    Call<ResponseBody> doCancelRide(@Body JsonObject body);
+
+    @Headers("Content-Type: application/json")
     @POST("user/update_quickblox")
     Call<ResponseBody> doUpdateQuickBlox(@Body JsonObject body);
 //    @Headers("Content-Type: application/json")

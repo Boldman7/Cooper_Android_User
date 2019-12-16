@@ -1,21 +1,20 @@
 package com.boldman.cooperuser.Model;
 
 import java.io.Serializable;
-import com.google.gson.annotations.SerializedName;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class YourTrips implements Serializable {
+public class BookingRides implements Serializable {
 
     private int id;
     private int user_id;
     private String email;
     private int gender;
-    private String first_name;
-    private String last_name;
+    private String firstname;
+    private String lastname;
     private String phone_number;
     private String avatar;
     private double driver_avg_rating;
@@ -34,6 +33,7 @@ public class YourTrips implements Serializable {
     private String accept_at;
     private String arrive_at;
     private String book_at;
+    private String book_accept_at;
     private String start_at;
     private String user_end_at;
     private String driver_end_at;

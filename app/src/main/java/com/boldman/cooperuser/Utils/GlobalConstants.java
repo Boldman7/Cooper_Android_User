@@ -39,20 +39,6 @@ public class GlobalConstants{
     public static String g_sos_phone = "911";
     public static String g_sos_email_address = "gilcassar@gmail.com";
 
-    /* Ride Status
-        ride_staus_requested: 0,
-        ride_staus_canceled: 1,
-        ride_staus_accepted: 2,
-        ride_staus_arrived: 3,
-        ride_staus_started: 4,
-        ride_staus_userended: 5,
-        ride_staus_driverended: 6,
-        ride_staus_pay: 7,
-        ride_staus_paid: 8,
-        ride_staus_userrated: 9,
-        ride_staus_finished: 10,
-     */
-
     public static int RIDE_STATUS_REQUESTED = 0;
     public static int RIDE_STATUS_CANCELED = 1;
     public static int RIDE_STATUS_ACCEPTED = 2;
@@ -66,4 +52,6 @@ public class GlobalConstants{
     public static int RIDE_STATUS_FINISHED = 10;
 
     public static String USER_QB_DEFAULT_PASSWORD = "quickblox_cooper";
+
+    public static double VAT_FEE = 10;
 }

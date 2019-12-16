@@ -21,9 +21,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.boldman.cooperuser.Activities.Payment.AddCardActivity;
-import com.boldman.cooperuser.Activities.Payment.PaymentActivity;
-import com.boldman.cooperuser.Activities.Sign.SignInActivity;
-import com.boldman.cooperuser.Adapters.NewPaymentListAdapter;
 import com.boldman.cooperuser.Api.ApiClient;
 import com.boldman.cooperuser.Api.ApiInterface;
 import com.boldman.cooperuser.Helper.CustomDialog;
@@ -36,12 +33,10 @@ import com.boldman.cooperuser.Utils.Utils;
 import com.braintreepayments.api.dropin.DropInActivity;
 import com.braintreepayments.api.dropin.DropInRequest;
 import com.braintreepayments.api.dropin.DropInResult;
-import com.braintreepayments.cardform.view.CardForm;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import com.stripe.android.model.Card;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -139,9 +134,9 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
                 onBackPressed();
             }
         });
-        one.setText(SharedHelper.getKey(context, "currency") + "199");
-        two.setText(SharedHelper.getKey(context, "currency") + "599");
-        three.setText(SharedHelper.getKey(context, "currency") + "1099");
+        one.setText(SharedHelper.getKey(context, "currency") + "10");
+        two.setText(SharedHelper.getKey(context, "currency") + "20");
+        three.setText(SharedHelper.getKey(context, "currency") + "100");
 
         add_money.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,7 +173,6 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
         add_fund_button.setOnClickListener(this);
 
         getBalance();
-        getCards(false);
     }
 
     private void getBalance(){
@@ -239,87 +233,6 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    private void getCards(final boolean showLoading){
-
-        loading = showLoading;
-        if (loading) {
-            if (customDialog != null)
-                customDialog.show();
-        }
-
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-
-        JsonObject gsonObject = new JsonObject();
-        try {
-            JSONObject paramObject = new JSONObject();
-
-            paramObject.put("api_token", GlobalConstants.g_api_token);
-            paramObject.put("atype", "user");
-
-            JsonParser jsonParser = new JsonParser();
-            gsonObject = (JsonObject) jsonParser.parse(paramObject.toString());
-
-            apiInterface.doGetCardList(gsonObject).enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
-                    if (showLoading) {
-                        if ((customDialog != null) && (customDialog.isShowing()))
-                            customDialog.dismiss();
-                    }
-                    try {
-                        JSONObject object = new JSONObject(response.body().string());
-
-                        if (object.getString("status").equals("1")){
-
-                            JSONObject data = object.getJSONObject("data");
-                            JSONArray cards = data.getJSONArray("cards");
-
-                            cardDetailsArrayList = new Gson().fromJson(cards.toString(), new TypeToken<List<CardDetails>>() {
-                            }.getType());
-
-                            if (cardDetailsArrayList.size() > 0){
-                                lblCardNumber.setText("XXXX-XXXX-XXXX-" + cardDetailsArrayList.get(0).getLastFour());
-
-                                cardInfo.setCardId(cardDetailsArrayList.get(0).getId());
-                                cardInfo.setCardType(cardDetailsArrayList.get(0).getBrand());
-                                cardInfo.setSelected(cardDetailsArrayList.get(0).getIsDefault());
-                                cardInfo.setLastFour(cardDetailsArrayList.get(0).getLastFour());
-                            }
-
-                            if (showLoading){
-                                if (cardDetailsArrayList.size() > 0) {
-                                    showChooser();
-                                }
-                            }
-
-                        } else{
-                            JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(WalletActivity.this, data.getString("message"));
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Utils.displayMessage(WalletActivity.this, getString(R.string.server_connect_error));
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    if ((customDialog != null) && (customDialog.isShowing()))
-                        customDialog.dismiss();
-                    t.printStackTrace();
-                    Utils.displayMessage(WalletActivity.this, getString(R.string.server_connect_error));
-                }
-            });
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
     }
 
     private void showChooser() {
@@ -449,7 +362,6 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
             if (resultCode == Activity.RESULT_OK) {
                 boolean result = data.getBooleanExtra("isAdded", false);
                 if (result) {
-                    getCards(true);
                 }
             }
         }
@@ -575,19 +487,19 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
                 one.setBackground(getResources().getDrawable(R.drawable.border_stroke_black));
                 two.setBackground(getResources().getDrawable(R.drawable.border_stroke));
                 three.setBackground(getResources().getDrawable(R.drawable.border_stroke));
-                money_et.setText("199");
+                money_et.setText("10");
                 break;
             case R.id.two:
                 one.setBackground(getResources().getDrawable(R.drawable.border_stroke));
                 two.setBackground(getResources().getDrawable(R.drawable.border_stroke_black));
                 three.setBackground(getResources().getDrawable(R.drawable.border_stroke));
-                money_et.setText("599");
+                money_et.setText("20");
                 break;
             case R.id.three:
                 one.setBackground(getResources().getDrawable(R.drawable.border_stroke));
                 two.setBackground(getResources().getDrawable(R.drawable.border_stroke));
                 three.setBackground(getResources().getDrawable(R.drawable.border_stroke_black));
-                money_et.setText("1099");
+                money_et.setText("100");
                 break;
         }
     }

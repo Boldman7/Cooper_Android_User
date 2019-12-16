@@ -233,15 +233,13 @@ public class SignInActivity extends AppCompatActivity {
                             JSONObject data = object.getJSONObject("data");
                             GlobalConstants.g_api_token = data.getString("api_token");
 
+                            SharedHelper.putKey(SignInActivity.this, "access_email", strEmail);
+                            SharedHelper.putKey(SignInActivity.this, "access_password", strPassword);
+                            SharedHelper.putKey(SignInActivity.this, "api_token", data.getString("api_token"));
+
                             if (chkRememberPasswd.isChecked()){
-                                SharedHelper.putKey(SignInActivity.this, "access_email", strEmail);
-                                SharedHelper.putKey(SignInActivity.this, "access_password", strPassword);
-                                SharedHelper.putKey(SignInActivity.this, "api_token", data.getString("api_token"));
                                 SharedHelper.putKey(SignInActivity.this, "loggedIn", getString(R.string.True));
                             } else{
-                                SharedHelper.putKey(SignInActivity.this, "access_email", strEmail);
-                                SharedHelper.putKey(SignInActivity.this, "access_password", strPassword);
-                                SharedHelper.putKey(SignInActivity.this, "api_token", data.getString("api_token"));
                                 SharedHelper.putKey(SignInActivity.this, "loggedIn", getString(R.string.False));
                             }
                             gotoMainActivity();

@@ -64,13 +64,16 @@ public class SplashActivity extends AppCompatActivity {
                 ( ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                         || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
                         || ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED
+                        || ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                        || ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED
                         || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NOTIFICATION_POLICY) != PackageManager.PERMISSION_GRANTED
                         || ActivityCompat.checkSelfPermission(this, Manifest.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND) != PackageManager.PERMISSION_GRANTED
                         || ActivityCompat.checkSelfPermission(this, Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) != PackageManager.PERMISSION_GRANTED)) {
 
             ActivityCompat.requestPermissions(this,
                     new String[]{ Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION
-                            , Manifest.permission.CALL_PHONE, Manifest.permission.ACCESS_NOTIFICATION_POLICY
+                            , Manifest.permission.CALL_PHONE, Manifest.permission.CAMERA
+                            , Manifest.permission.RECORD_AUDIO, Manifest.permission.ACCESS_NOTIFICATION_POLICY
                             , Manifest.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND, Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS},
                     1);
 

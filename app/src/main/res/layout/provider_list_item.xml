@@ -3,15 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root"
-    android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:layout_margin="@dimen/_7sdp"
+    android:id="@+id/root"
+    android:background="@drawable/round_corner_white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -51,19 +53,90 @@
             android:layout_gravity="center_vertical">
 
             <TextView
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvName"/>
+                android:text="Name"
+                android:textColor="@color/black_text_color"
+                android:textSize="@dimen/_12sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/_5sdp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Distance Away: "
+                        android:textColor="@color/light_gray"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="end"/>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_5sdp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ETA: "
+                        android:textColor="@color/light_gray"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_gravity="end"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.0 KM"
+                        android:textColor="@color/black_text_color"
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold"/>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_5sdp"/>
+
+                    <TextView
+                        android:id="@+id/tvEta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="48 Sec"
+                        android:textColor="@color/black_text_color"
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/tvCarModelNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvDistance" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvCarModelNumber" />
+                android:text="Model - Number"
+                android:textColor="@color/black_text_color"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"/>
 
 
         </LinearLayout>
@@ -84,18 +157,25 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/grey"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_2sdp">
 
         <Button
             android:id="@+id/btnSelectRequest"
             android:layout_width="0dp"
             android:layout_height="@dimen/_20sdp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
             android:text="@string/request"
-            android:textColor="@color/button_text_color" />
+            android:background="@drawable/btn_default_white"
+            android:textColor="@color/black_text_color"
+            android:textSize="@dimen/_11sdp"/>
 
     </LinearLayout>
 

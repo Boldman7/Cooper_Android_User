@@ -1,11 +1,11 @@
 package com.boldman.cooperuser.Activities;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.NotificationManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 
@@ -16,12 +16,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.boldman.cooperuser.Activities.Coupon.CouponActivity;
 import com.boldman.cooperuser.Activities.Help.HelpActivity;
-import com.boldman.cooperuser.Activities.Payment.PaymentActivity;
 import com.boldman.cooperuser.Activities.Profile.EditProfileActivity;
 import com.boldman.cooperuser.Activities.Service.ExploreActivity;
 import com.boldman.cooperuser.Activities.Settings.ActivitySettings;
@@ -36,11 +36,8 @@ import com.boldman.cooperuser.Fragments.MenuFragment;
 import com.boldman.cooperuser.Helper.CustomDialog;
 import com.boldman.cooperuser.Helper.SharedHelper;
 import com.boldman.cooperuser.QuickBlox.MessageChat.QBMgr;
-import com.boldman.cooperuser.QuickBlox.VideoChat.activities.CallActivity;
-import com.boldman.cooperuser.QuickBlox.VideoChat.services.CallService;
 import com.boldman.cooperuser.QuickBlox.VideoChat.services.LoginService;
 import com.boldman.cooperuser.QuickBlox.VideoChat.utils.Consts;
-import com.boldman.cooperuser.QuickBlox.VideoChat.utils.SharedPrefsHelper;
 import com.boldman.cooperuser.R;
 import com.boldman.cooperuser.Utils.Utils;
 import com.facebook.login.LoginManager;
@@ -106,25 +103,21 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (SharedHelper.getKey(this, "loggedIn").equalsIgnoreCase("true")) {
+        getProfile();
+        getBalance();
 
-            getProfile();
-            getBalance();
+        Intent intent = getIntent();
+        if (intent != null && intent.getExtras() != null)
+            notificationMsg = intent.getExtras().getString("Notification");
 
-            Intent intent = getIntent();
-            if (intent != null && intent.getExtras() != null)
-                notificationMsg = intent.getExtras().getString("Notification");
+        mHandler = new Handler();
 
-            mHandler = new Handler();
-
-            if (savedInstanceState == null) {
-                navItemIndex = 0;
-                CURRENT_TAG = TAG_MAIN_FRAGMENT;
-                loadHomeFragment();
-            }
-        } else{
-            goToLoginActivity();
+        if (savedInstanceState == null) {
+            navItemIndex = 0;
+            CURRENT_TAG = TAG_MAIN_FRAGMENT;
+            loadHomeFragment();
         }
+
 
     }
 
@@ -455,6 +448,7 @@ public class MainActivity extends AppCompatActivity implements
             LoginManager.getInstance().logOut();
         if (SharedHelper.getKey(context, "login_by").equals("google"))
             googleSignOut();
+
 //        if (!SharedHelper.getKey(MainActivity.this, "account_kit_token").equalsIgnoreCase("")) {
 //            Log.e("MainActivity", "Account kit logout: " + SharedHelper.getKey(MainActivity.this, "account_kit_token"));
 //            AccountKit.logOut();
@@ -533,8 +527,8 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void paymentMenuPressed() {
-        SharedHelper.putKey(context, "current_status", "");
-        startActivity(new Intent(MainActivity.this, PaymentActivity.class));
+//        SharedHelper.putKey(context, "current_status", "");
+//        startActivity(new Intent(MainActivity.this, PaymentActivity.class));
     }
 
     @Override
@@ -577,7 +571,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void logoutMenuPressed() {
 
-        logout();
+        showLogoutDialog();
 
     }
 
@@ -618,34 +612,38 @@ public class MainActivity extends AppCompatActivity implements
         CooperUserApplication.getInstance().getQbResRequestExecutor().signOut();
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        Log.d("onResume_Mainactivity", "xxx");
-//
-//        boolean isIncomingCall = SharedPrefsHelper.getInstance().get(Consts.EXTRA_IS_INCOMING_CALL, false);
-//        if (isCallServiceRunning(CallService.class)) {
-//            Log.d("onResume_Mainactivity", "CallService is running now");
-//            CallActivity.start(this, isIncomingCall);
-//        }
-//        clearAppNotifications();
-//    }
-//
-//    private boolean isCallServiceRunning(Class<?> serviceClass) {
-//        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-//        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-//            if (serviceClass.getName().equals(service.service.getClassName())) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    private void clearAppNotifications() {
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//        if (notificationManager != null) {
-//            notificationManager.cancelAll();
-//        }
-//    }
+    private void showLogoutDialog() {
+
+        if (!isFinishing()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("LOGOUT");
+            builder.setMessage(getString(R.string.exit_confirm));
+
+            builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    logout();
+                }
+            });
+
+            builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Reset to previous seletion menu in navigation
+                    dialog.dismiss();
+                }
+            });
+            builder.setCancelable(false);
+            final AlertDialog dialog = builder.create();
+            dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                @Override
+                public void onShow(DialogInterface arg) {
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark));
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark));
+                }
+            });
+            dialog.show();
+        }
+    }
+
 }

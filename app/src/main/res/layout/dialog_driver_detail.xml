@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Driver Name"
-        android:textSize="@dimen/_17sdp"
+        android:textSize="@dimen/_13sdp"
         android:textStyle="bold"
         android:textColor="@color/text_color_black"
         android:textAlignment="center"/>
 
     <RatingBar
         android:id="@+id/rb_driver_rating"
-        style="?attr/ratingBarStyleIndicator"
+        style="?attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:text="Gender: "
             android:layout_gravity="center_vertical"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_13sdp"
             android:paddingStart="@dimen/_10sdp"/>
 
         <TextView
@@ -56,7 +56,7 @@
             android:text="@string/male"
             android:layout_gravity="center_vertical"
             android:textColor="@color/dark_gray"
-            android:textSize="@dimen/_14sdp"/>
+            android:textSize="@dimen/_13sdp"/>
 
     </LinearLayout>
 
@@ -76,13 +76,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Car model: "
-            android:textSize="@dimen/_15sdp"/>
+            android:textSize="@dimen/_13sdp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HONDA"
-            android:textSize="@dimen/_17sdp"
+            android:textSize="@dimen/_13sdp"
             android:textStyle="bold"/>
 
     </LinearLayout>
@@ -97,13 +97,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="License Plate: "
-            android:textSize="@dimen/_15sdp"/>
+            android:textSize="@dimen/_13sdp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="QB653SN"
-            android:textSize="@dimen/_17sdp"
+            android:textSize="@dimen/_13sdp"
             android:textStyle="bold"/>
 
     </LinearLayout>
@@ -112,11 +112,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recent reviews: "
-        android:textSize="@dimen/_15sdp"
+        android:textSize="@dimen/_13sdp"
         android:paddingTop="@dimen/_5sdp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginTop="@dimen/_5sdp"
@@ -134,7 +134,7 @@
         android:id="@+id/btn_close"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
-        android:background="@color/blue"
+        android:background="@drawable/rounded_button"
         android:textColor="@color/text_color_white"
         android:text="CLOSE"/>
 

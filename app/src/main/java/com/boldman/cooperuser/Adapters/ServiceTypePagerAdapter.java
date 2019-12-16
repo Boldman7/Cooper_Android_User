@@ -52,12 +52,14 @@ public class ServiceTypePagerAdapter extends PagerAdapter {
 
             String serviceName = serviceType.getName();
 
-            if (serviceName.equalsIgnoreCase("Cooper Cool"))
-                ((TextView) view.findViewById(R.id.serviceTitleItem)).setText("Economy");
-            else if (serviceName.equalsIgnoreCase("Cooper Elite"))
-                ((TextView) view.findViewById(R.id.serviceTitleItem)).setText("Premium");
-            else
-                ((TextView) view.findViewById(R.id.serviceTitleItem)).setText(serviceName);
+//            if (serviceName.equalsIgnoreCase("Cooper Cool"))
+//                ((TextView) view.findViewById(R.id.serviceTitleItem)).setText("Economy");
+//            else if (serviceName.equalsIgnoreCase("Cooper Elite"))
+//                ((TextView) view.findViewById(R.id.serviceTitleItem)).setText("Premium");
+//            else
+//                ((TextView) view.findViewById(R.id.serviceTitleItem)).setText(serviceName);
+
+            ((TextView) view.findViewById(R.id.serviceTitleItem)).setText(serviceName);
 
             ((TextView) view.findViewById(R.id.serviceDescriptionItem)).setText(serviceType.getDriverName());
 //            Glide.with(fragment).load(serviceType.getImage())
@@ -65,10 +67,8 @@ public class ServiceTypePagerAdapter extends PagerAdapter {
 
             Picasso.with(fragment.getContext()).load(serviceType.getImage()).placeholder(R.drawable.car_select).error(R.drawable.car_select).into((ImageView)view.findViewById(R.id.serviceImg));
 
-
-            ((TextView) view.findViewById(R.id.serviceItem)).setText(serviceName);
             ((TextView) view.findViewById(R.id.servicePriceItem)).setText("$" + String.valueOf(serviceType.getPrice()));
-
+            ((TextView) view.findViewById(R.id.tv_capacity)).setText("1-" + serviceType.getCapacity());
             container.addView(view);
 
         } catch (Exception e) {

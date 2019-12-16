@@ -11,27 +11,28 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.boldman.cooperuser.Helper.SharedHelper;
+import com.boldman.cooperuser.Model.BookingRides;
 import com.boldman.cooperuser.Model.YourTrips;
 import com.boldman.cooperuser.R;
 import com.boldman.cooperuser.Utils.DateUtil;
 
 import java.util.List;
 
-public class UpcomingTripsAdapter extends ArrayAdapter<YourTrips> {
+public class UpcomingTripsAdapter extends ArrayAdapter<BookingRides> {
 
     Context context;
-    List<YourTrips> list;
+    List<BookingRides> list;
     IUpcomingTripsAEventListener mListener;
 
     public interface IUpcomingTripsAEventListener {
-        void onViewDetail(YourTrips selectedUpcomingTrip);
+        void onViewDetail(BookingRides selectedUpcomingTrip);
     }
 
     public UpcomingTripsAdapter(Context context) {
         super(context, 0);
     }
 
-    public UpcomingTripsAdapter(Context context, List<YourTrips> list, IUpcomingTripsAEventListener listener){
+    public UpcomingTripsAdapter(Context context, List<BookingRides> list, IUpcomingTripsAEventListener listener){
 
         super(context, R.layout.upcoming_trips_list_item, list);
         this.context=context;
@@ -52,11 +53,24 @@ public class UpcomingTripsAdapter extends ArrayAdapter<YourTrips> {
             holder = (ViewHolder) contentView.getTag();
         }
 
-        YourTrips yourTrips = getItem(position);
+        BookingRides bookingRide = getItem(position);
 
-        holder.tripId.setText("coOper-" + yourTrips.getId());
-        holder.tripDateAndTime.setText(!yourTrips.getBook_at().equalsIgnoreCase("null") ? DateUtil.convertDateToString24HoursFormat(yourTrips.getBook_at()) : "");
-        holder.tripCost.setText("$" + yourTrips.getPay_amount());
+        holder.tripId.setText("coOper-" + bookingRide.getId());
+        try {
+            holder.tripDateAndTime.setText(DateUtil.convertDateToString24HoursFormat(bookingRide.getBook_at()));
+        } catch (Exception e){
+            holder.tripDateAndTime.setText("");
+            e.printStackTrace();
+        }
+
+        if (bookingRide.getStatus() != 1)
+            holder.tripCost.setText("$" + bookingRide.getPay_amount());
+        else {
+            if (bookingRide.getCancel_by().equalsIgnoreCase("user"))
+                holder.tripCost.setText("Cancelled by User");
+            else
+                holder.tripCost.setText("Cancelled by Driver");
+        }
 
         holder.tripView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -86,7 +100,7 @@ public class UpcomingTripsAdapter extends ArrayAdapter<YourTrips> {
 
     @Nullable
     @Override
-    public YourTrips getItem(int position) {
+    public BookingRides getItem(int position) {
         return super.getItem(position);
     }
 

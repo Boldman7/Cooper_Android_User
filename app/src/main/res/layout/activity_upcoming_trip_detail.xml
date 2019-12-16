@@ -112,10 +112,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/_5sdp">
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -138,7 +138,7 @@
 
                     <View
                         android:layout_width="@dimen/_1sdp"
-                        android:layout_height="@dimen/_47sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/_4sdp"
                         android:background="@color/black_text_color" />
@@ -185,8 +185,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="@dimen/_15sdp"
                 android:paddingStart="@dimen/_5sdp"
@@ -203,7 +202,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingTop="@dimen/_15sdp">
+                    android:paddingTop="@dimen/_5sdp">
 
                     <TextView
                         android:id="@+id/tv_payment_method"
@@ -236,9 +235,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.15"
             android:orientation="vertical"
-            android:padding="@dimen/_5sdp">
+            android:layout_weight="1"
+            android:layout_margin="@dimen/_5sdp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -248,40 +247,39 @@
                 android:text="@string/comments"
                 android:paddingBottom="@dimen/_5sdp"/>
 
-            <TextView
-                android:id="@+id/tv_comment"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black_text_color"
-                android:textSize="@dimen/_10sdp"
-                android:text="@string/comments"
-                android:padding="@dimen/_5sdp"/>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="@dimen/_11sdp"
+                    android:text="@string/comments"
+                    android:padding="@dimen/_5sdp"/>
+
+            </ScrollView>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <Button
                 android:id="@+id/btn_booking_cancel"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_weight="0.5"
-                android:background="@color/colorTextWhite"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:background="@drawable/round_corner_black"
                 android:text="@string/cancel"
-                android:textColor="@color/blue"
-                android:textSize="@dimen/_12sdp"/>
-
-            <Button
-                android:id="@+id/btn_booking_start"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_weight="0.5"
-                android:background="@color/colorTextWhite"
-                android:text="@string/start"
-                android:textColor="@color/blue"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"/>
 
         </LinearLayout>

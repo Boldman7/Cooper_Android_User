@@ -982,6 +982,7 @@
                                         android:textSize="@dimen/_13sdp" />
                                 </LinearLayout>
 
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -989,6 +990,89 @@
                                     android:orientation="horizontal">
 
                                     <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="start"
+                                        android:text="@string/sub_total"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_13sdp" />
+
+                                    <TextView
+                                        android:id="@+id/lblSubtotal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="@string/sample_base_price"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_13sdp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/discountDetectionLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="start"
+                                        android:text="@string/discount"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_13sdp" />
+
+                                    <TextView
+                                        android:id="@+id/lblDiscountPrice"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="@string/sample_base_price"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_13sdp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/subtotal2Layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="start"
+                                        android:text="@string/sub_total2"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_13sdp" />
+
+                                    <TextView
+                                        android:id="@+id/lblSubtotal2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="@string/sample_base_price"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_13sdp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/lblTaxTag"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_weight="1"
@@ -1050,34 +1134,6 @@
                                         android:text="Use Coupon"
                                         android:textSize="@dimen/_13sdp" />
 
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:id="@+id/discountDetectionLayout"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="@dimen/_5sdp"
-                                    android:orientation="horizontal"
-                                    android:visibility="gone">
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:gravity="start"
-                                        android:text="@string/discount_detection"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="@dimen/_13sdp" />
-
-                                    <TextView
-                                        android:id="@+id/lblDiscountPrice"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:gravity="end"
-                                        android:text="@string/sample_base_price"
-                                        android:textColor="@android:color/black"
-                                        android:textSize="@dimen/_13sdp" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -1218,7 +1274,7 @@
 
                         <!--Request to providers-->
                         <LinearLayout
-                            android:id="@+id/lnrRequestProviders"
+                            android:id="@+id/lnrSelectServiceType"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
@@ -1936,6 +1992,12 @@
                                         android:textColor="@color/text_color_black"
                                         android:textSize="@dimen/_13sdp" />
 
+                                    <ImageView
+                                        android:id="@+id/img_distance_detail"
+                                        android:layout_width="@dimen/_15sdp"
+                                        android:layout_height="@dimen/_15sdp"
+                                        android:src="@drawable/drop_down"/>
+
                                     <TextView
                                         android:id="@+id/lblTotalDistance"
                                         android:layout_width="match_parent"
@@ -1944,6 +2006,47 @@
                                         android:gravity="end"
                                         android:textColor="@color/text_color_black"
                                         android:textSize="@dimen/_13sdp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/lyt_distance_detail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:layout_marginEnd="@dimen/_15sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:id="@+id/tv_distance_to_pickup"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:textColor="@color/text_color_black"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:text="To Pickup Location: 1km"/>
+
+                                    <TextView
+                                        android:id="@+id/tv_distance_to_detination"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:textColor="@color/text_color_black"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:text="To Destination: 1km"/>
+
+                                    <TextView
+                                        android:id="@+id/tv_distance_total"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:textColor="@color/text_color_black"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:text="Total: 1km"/>
+
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -1965,6 +2068,12 @@
                                         android:textColor="@color/text_color_black"
                                         android:textSize="@dimen/_13sdp" />
 
+                                    <ImageView
+                                        android:id="@+id/img_eta_detail"
+                                        android:layout_width="@dimen/_15sdp"
+                                        android:layout_height="@dimen/_15sdp"
+                                        android:src="@drawable/drop_down"/>
+
                                     <TextView
                                         android:id="@+id/lblEta"
                                         android:layout_width="match_parent"
@@ -1973,6 +2082,47 @@
                                         android:gravity="end"
                                         android:textColor="@color/text_color_black"
                                         android:textSize="@dimen/_13sdp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/lyt_eta_detail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:layout_marginEnd="@dimen/_15sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:id="@+id/tv_eta_to_pickup"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:textColor="@color/text_color_black"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:text="To Pickup Location: 1min"/>
+
+                                    <TextView
+                                        android:id="@+id/tv_eta_to_detination"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:textColor="@color/text_color_black"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:text="To Destination: 1min"/>
+
+                                    <TextView
+                                        android:id="@+id/tv_eta_total"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:textColor="@color/text_color_black"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:text="Total: 1min"/>
+
                                 </LinearLayout>
 
                                 <LinearLayout

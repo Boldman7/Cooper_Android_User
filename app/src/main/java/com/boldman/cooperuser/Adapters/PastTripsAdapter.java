@@ -55,8 +55,22 @@ public class PastTripsAdapter extends ArrayAdapter<YourTrips> {
         YourTrips yourTrips = getItem(position);
 
         holder.tripId.setText("coOper-" + yourTrips.getId());
-        holder.tripDateAndTime.setText(!yourTrips.getFinish_at().equalsIgnoreCase("null") ? DateUtil.convertDateToString24HoursFormat(yourTrips.getFinish_at()) : "");
-        holder.tripCost.setText("$" + yourTrips.getPay_amount());
+
+        try {
+            holder.tripDateAndTime.setText(DateUtil.convertDateToString24HoursFormat(yourTrips.getFinish_at()));
+        } catch (Exception e){
+            holder.tripDateAndTime.setText("");
+            e.printStackTrace();
+        }
+
+        if (yourTrips.getStatus() != 1)
+            holder.tripCost.setText("$" + yourTrips.getPay_amount());
+        else {
+            if (yourTrips.getCancel_by().equalsIgnoreCase("user"))
+                holder.tripCost.setText("Cancelled by User");
+            else
+                holder.tripCost.setText("Cancelled by Driver");
+        }
 
         holder.tripView.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -120,10 +120,12 @@ public class SignVerifyActivity extends AppCompatActivity {
 
                         JSONObject data = object.getJSONObject("data");
 
-                        SharedHelper.putKey(SignVerifyActivity.this, "access_email", GlobalConstants.g_email);
-                        SharedHelper.putKey(SignVerifyActivity.this, "access_password", GlobalConstants.g_password);
+//                        SharedHelper.putKey(SignVerifyActivity.this, "access_email", GlobalConstants.g_email);
+//                        SharedHelper.putKey(SignVerifyActivity.this, "access_password", GlobalConstants.g_password);
 
-                        sendSignInRequest();
+                        gotoLoginActivity();
+
+                        //sendSignInRequest();
 
                     } else{
 

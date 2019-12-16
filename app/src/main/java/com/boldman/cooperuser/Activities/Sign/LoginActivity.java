@@ -29,7 +29,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.boldman.cooperuser.Helper.SharedHelper;
 import com.boldman.cooperuser.R;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 /*
 *   LoginActivity
@@ -84,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
+        SharedHelper.putKey(this, "fcm_token", FirebaseInstanceId.getInstance().getToken());
     }
 
     /*  define ids*/

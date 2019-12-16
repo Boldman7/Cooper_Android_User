@@ -20,12 +20,15 @@ import com.boldman.cooperuser.Api.ApiClient;
 import com.boldman.cooperuser.Api.ApiInterface;
 import com.boldman.cooperuser.Helper.ConnectionHelper;
 import com.boldman.cooperuser.Helper.CustomDialog;
+import com.boldman.cooperuser.Model.BookingRides;
 import com.boldman.cooperuser.Model.YourTrips;
 import com.boldman.cooperuser.R;
 import com.boldman.cooperuser.Utils.GlobalConstants;
 import com.boldman.cooperuser.Utils.Utils;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +52,7 @@ public class UpcomingTrips extends Fragment {
     CustomDialog customDialog;
     View rootView;
 
-    List<YourTrips> yourTripsList;
+    List<BookingRides> bookingRideList;
 
     public UpcomingTrips() {
         // Required empty public constructor
@@ -69,11 +72,6 @@ public class UpcomingTrips extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
-        if (helper.isConnectingToInternet()) {
-
-            getUpcomingRideList();
-        }
 
         super.onViewCreated(view, savedInstanceState);
     }
@@ -108,56 +106,10 @@ public class UpcomingTrips extends Fragment {
 
                             JSONArray rides = data.getJSONArray("rides");
 
-                            yourTripsList = new ArrayList<>();
+                            bookingRideList = new Gson().fromJson(rides.toString(), new TypeToken<List<BookingRides>>() {
+                            }.getType());
 
-                            for(int i = 0; i < rides.length(); i ++){
-                                JSONObject ride = rides.getJSONObject(i);
-
-                                YourTrips trip = new YourTrips();
-
-                                try {
-                                    trip.setFirstname( ride.getString("firstname"));
-                                } catch (Exception e){
-                                    trip.setFirstname("");
-                                }
-                                try {
-                                    trip.setLastname( ride.getString("lastname"));
-                                } catch (Exception e){
-                                    trip.setLastname("");
-                                }
-                                try {
-                                    trip.setDriver_avg_rating( ride.getDouble("driver_avg_rating"));
-                                } catch (Exception e){
-                                    trip.setDriver_avg_rating(0);
-                                }
-                                try {
-                                    trip.setBook_at( ride.getString("book_at"));
-                                } catch (Exception e){
-                                    trip.setBook_at("");
-                                }
-                                try {
-                                    trip.setPayment_method(ride.getString("payment_method"));
-                                } catch (Exception e){
-                                    trip.setPayment_method("CASH");
-                                }
-                                try {
-                                    trip.setPay_amount((float) ride.getDouble("pay_amount"));
-                                } catch (Exception e){
-                                    trip.setPay_amount(0);
-                                }
-                                try {
-                                    trip.setId(ride.getInt("id"));
-                                } catch (Exception e){
-                                    trip.setId(0);
-                                }
-
-                                yourTripsList.add(trip);
-                            }
-//
-//                            yourTripsList = new Gson().fromJson(service_type.toString(), new TypeToken<List<YourTrips>>() {
-//                            }.getType());
-
-                            upcomingTripsAdapter = new UpcomingTripsAdapter(getContext(), yourTripsList,
+                            upcomingTripsAdapter = new UpcomingTripsAdapter(getContext(), bookingRideList,
                                     selectedTrip -> {
 
                                         Intent intent = new Intent(getContext(), UpcomingTripDetailActivity.class);
@@ -166,11 +118,13 @@ public class UpcomingTrips extends Fragment {
 
                                     });
 
-                            if (yourTripsList.size() > 0) {
+                            if (bookingRideList.size() > 0) {
+                                listView.setVisibility(View.VISIBLE);
                                 errorLayout.setVisibility(View.GONE);
                                 listView.setAdapter(upcomingTripsAdapter);
                                 Log.wtf("TRIP NUMBER ~~~ ", upcomingTripsAdapter.getCount() + "");
                             } else {
+                                listView.setVisibility(View.GONE);
                                 errorLayout.setVisibility(View.VISIBLE);
                             }
 
@@ -202,8 +156,6 @@ public class UpcomingTrips extends Fragment {
 
     }
 
-
-
     public void init() {
         // recyclerView = rootView.findViewById(R.id.recyclerView);
         listView = rootView.findViewById(R.id.lv_upcoming);
@@ -223,6 +175,16 @@ public class UpcomingTrips extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        Log.i("XXXXXXXXXXXXXXXXX", "UpcomingTripsOnResume");
+
+        getUpcomingRideList();
+
     }
 
 }

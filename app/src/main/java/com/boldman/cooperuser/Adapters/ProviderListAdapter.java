@@ -6,7 +6,6 @@ package com.boldman.cooperuser.Adapters;
  * 2019.06.06
  */
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,38 +16,33 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.boldman.cooperuser.Model.CardDetails;
 import com.boldman.cooperuser.Model.DriverInfo;
 import com.boldman.cooperuser.R;
-import com.boldman.cooperuser.Utils.GlobalConstants;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public class ProviderListAdapter extends ArrayAdapter<DriverInfo> {
 
     Context context;
     List<DriverInfo> list;
-    IProviderListAEventListener mListener;
+    IProviderListRequestListener mRequestListener;
+    IProviderListViewListener mViewListener;
 
-    public interface IProviderListAEventListener {
+    public interface IProviderListRequestListener {
         void onProviderRequest(String strProviderEmail);
     }
 
-    public ProviderListAdapter(Context context, List<DriverInfo> list){
-        super(context, R.layout.provider_list_item, list);
-        this.context=context;
-        this.list=list;
+    public interface IProviderListViewListener {
+        void onProviderView(int position);
     }
 
-    public ProviderListAdapter(Context context, List<DriverInfo> list, IProviderListAEventListener listener){
+    public ProviderListAdapter(Context context, List<DriverInfo> list, IProviderListRequestListener requestListener, IProviderListViewListener viewListener){
         super(context, R.layout.provider_list_item, list);
         this.context=context;
         this.list=list;
-        this.mListener = listener;
+        this.mRequestListener = requestListener;
+        this.mViewListener = viewListener;
     }
 
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -90,8 +84,16 @@ public class ProviderListAdapter extends ArrayAdapter<DriverInfo> {
         btnRequest.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ProviderListAdapter.this.mListener.onProviderRequest(list.get(position).getEmail());
+                ProviderListAdapter.this.mRequestListener.onProviderRequest(list.get(position).getEmail());
             }});
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ProviderListAdapter.this.mViewListener.onProviderView(position);
+            }
+        });
         return itemView;
     }
 }

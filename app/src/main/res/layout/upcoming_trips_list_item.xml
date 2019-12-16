@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_140sdp"
+    android:layout_height="@dimen/_160sdp"
     android:orientation="vertical"
     android:paddingTop="@dimen/_5sdp"
     android:paddingBottom="@dimen/_5sdp"
@@ -32,7 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="coOper-100"
+                android:text="CoOper-100"
                 android:textColor="@color/black_text_color"
                 android:textStyle="bold"
                 android:textSize="@dimen/_12sdp"/>
@@ -57,15 +57,6 @@
             android:layout_marginEnd="@dimen/_7sdp">
 
             <TextView
-                android:id="@+id/tv_datetime"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Date"
-                android:textColor="@color/light_gray"
-                android:textSize="@dimen/_12sdp"/>
-
-            <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -73,8 +64,25 @@
                 android:text="$0.00"
                 android:textColor="@color/black_text_color"
                 android:textStyle="bold"
-                android:textSize="@dimen/_12sdp"
-                android:gravity="center"/>
+                android:textSize="@dimen/_12sdp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_marginEnd="@dimen/_7sdp">
+
+            <TextView
+                android:id="@+id/tv_datetime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date"
+                android:textColor="@color/light_gray"
+                android:textSize="@dimen/_12sdp"/>
 
         </LinearLayout>
 

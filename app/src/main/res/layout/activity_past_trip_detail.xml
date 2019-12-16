@@ -112,10 +112,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="@dimen/_5sdp">
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -138,7 +138,7 @@
 
                     <View
                         android:layout_width="@dimen/_1sdp"
-                        android:layout_height="@dimen/_47sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/_4sdp"
                         android:background="@color/black_text_color" />
@@ -197,7 +197,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/payment_method"
                     android:textColor="@color/black_text_color"
-                    android:textSize="@dimen/_11sdp"/>
+                    android:textSize="@dimen/_12sdp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -210,7 +210,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CASH"
-                        android:textColor="@color/black_text_color"/>
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_text_color"
+                        android:textSize="@dimen/_13sdp"/>
 
                     <TextView
                         android:id="@+id/tv_price"
@@ -238,24 +240,30 @@
             android:layout_height="0dp"
             android:layout_weight="0.15"
             android:orientation="vertical"
-            android:padding="@dimen/_5sdp">
+            android:padding="@dimen/_10sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black_text_color"
-                android:textSize="@dimen/_11sdp"
+                android:textSize="@dimen/_12sdp"
                 android:text="@string/comments"
-                android:paddingBottom="@dimen/_5sdp"/>
+                android:paddingBottom="@dimen/_2sdp"/>
 
-            <TextView
-                android:id="@+id/tv_comment"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black_text_color"
-                android:textSize="@dimen/_10sdp"
-                android:text="@string/comments"
-                android:padding="@dimen/_5sdp"/>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="@dimen/_11sdp"
+                    android:text="@string/comments"
+                    android:padding="@dimen/_5sdp"/>
+
+            </ScrollView>
 
         </LinearLayout>
 
@@ -264,14 +272,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginStart="@dimen/_50sdp"
-            android:layout_marginEnd="@dimen/_50sdp">
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <Button
                 android:id="@+id/btn_view_invoice"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_weight="0.5"
-                android:background="@color/blue"
+                android:background="@drawable/round_button_blue"
                 android:text="@string/view_invoice"
                 android:textColor="@color/colorTextWhite"
                 android:textSize="@dimen/_12sdp"/>

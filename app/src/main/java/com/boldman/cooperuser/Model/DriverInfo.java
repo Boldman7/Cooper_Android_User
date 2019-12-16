@@ -16,6 +16,8 @@ public class DriverInfo {
     private String avatar;
     private String driver_time;
     private float angle;
+    private float distance;
+    private int service_type;
     private float avg_rating;
     private List<CarImage> carImageList;
 
@@ -31,6 +33,8 @@ public class DriverInfo {
     public void setAvatar(String sAvatar){ avatar = sAvatar; }
     public void setDriverTime(String sDriverTime){ driver_time = sDriverTime; }
     public void setAngle(float sAngle){ angle = sAngle;}
+    public void setDistance(float sDistance){ distance = sDistance;}
+    public void setServiceType(int sServiceType){ service_type = sServiceType;}
     public void setAvgRating(float sAvgRating) { avg_rating = sAvgRating;}
     public void setCarImageList(List<CarImage> sCarImageList) { carImageList = sCarImageList;}
 
@@ -46,6 +50,8 @@ public class DriverInfo {
     public String getAvatar() { return avatar;}
     public String getDriver_time() { return driver_time;}
     public float getAngle() { return angle;}
+    public float getDistance() { return distance;}
+    public float getServiceType() { return service_type;}
     public float getAvgRating() { return avg_rating;}
     public List<CarImage> getCarImageList() { return carImageList; }
 }
