@@ -247,7 +247,7 @@ public class SignInActivity extends AppCompatActivity {
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(SignInActivity.this, data.getString("message"));
+                            Utils.displayMessage(SignInActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

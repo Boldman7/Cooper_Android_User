@@ -210,7 +210,7 @@
     <string name="sample_time_travel" translatable="false">1 hr</string>
     <string name="extra_price">Extra</string>
     <string name="tax">Tax</string>
-    <string name="wallet_detection">Wallet Detection</string>
+    <string name="wallet_balance">Wallet Balance</string>
     <string name="discount_detection">Discount Applied</string>
     <string name="discount">Discount</string>
     <string name="total">Total</string>
@@ -286,7 +286,7 @@
     <string name="add_code">Add Code</string>
 
     <!--Wallet Activity-->
-    <string name="wallet_balance">Your wallet amount is</string>
+    <string name="wallet_amount_is">Your wallet amount is</string>
 
 
     <!--Change Password-->

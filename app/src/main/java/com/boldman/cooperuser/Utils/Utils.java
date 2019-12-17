@@ -19,12 +19,16 @@ import androidx.appcompat.app.AlertDialog;
 import com.boldman.cooperuser.Model.AccessDetails;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -190,5 +194,183 @@ public class Utils {
     {
         DecimalFormat twoDForm = new DecimalFormat("#.##");
         return Double.valueOf(twoDForm.format(d));
+    }
+
+    public static String parseErrorMessage(JSONObject jsonObject){
+
+        String strMsg = "";
+        String strSubMsg = "";
+        String strKey = "";
+        JSONArray arrValidationError = null;
+        JSONArray arrVerifyError = null;
+
+        try {
+            strKey = jsonObject.getString("message");
+
+            try {
+                arrValidationError = jsonObject.getJSONArray("validation_error");
+            } catch (Exception e){
+                e.printStackTrace();
+                arrValidationError = null;
+            }
+
+            if (arrValidationError != null){
+
+                for (int i = 0; i < arrValidationError.length(); i ++) {
+
+                    JSONObject object = arrValidationError.getJSONObject(i);
+
+                    for(Iterator<String> iter = object.keys(); iter.hasNext();) {
+                        String key = iter.next();
+                        String value = object.getString(key);
+
+                        strSubMsg = strSubMsg + key + " - " + value + "\n";
+                    }
+
+                }
+            }
+
+            try {
+                arrVerifyError = jsonObject.getJSONArray("verify_error");
+            } catch (Exception e){
+                e.printStackTrace();
+                arrVerifyError = null;
+            }
+
+            if (arrVerifyError != null){
+
+                for (int i = 0; i < arrVerifyError.length(); i ++) {
+
+                    JSONObject object = arrVerifyError.getJSONObject(i);
+
+                    for(Iterator<String> iter = object.keys(); iter.hasNext();) {
+                        String key = iter.next();
+                        String value = object.getString(key);
+
+                        strSubMsg = strSubMsg + key + " - " + value + "\n";
+                    }
+
+                }
+            }
+
+            if (!strSubMsg.equalsIgnoreCase(""))
+                strMsg = getMessageForKey(strKey) + "\n" + strSubMsg;
+            else
+                strMsg = getMessageForKey(strKey) + strSubMsg;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return strMsg;
+    }
+
+    public static String getMessageForKey(String strKey){
+
+        String response = strKey;
+
+        switch (strKey){
+            case "E_INVALID_EMAIL":
+                response = "Email address is incorrect.";
+                break;
+            case "E_VALIDATION_ERROR" :
+                response = "Validation Error";
+                break;
+            case "E_UNKNOWN_ERROR" :
+                response = "Something went wrong.";
+                break;
+            case "E_WRONG_PASSWORD" :
+                response = "Password entered is incorrect.";
+                break;
+            case "E_DUPLICATED_EMAIL" :
+                response = "Email address is already used.";
+                break;
+            case "S_SUCCESS_GET":
+                response = "Success Get.";
+                break;
+            case "S_SUCCESS_RESIGNUP":
+                response = "Success Resignup.";
+                break;
+            case "S_ALREADY_SIGNUP":
+                response = "You have already signed up.";
+                break;
+            case "E_INVALID_APITOKEN":
+                response = "API token is invalid.";
+                break;
+            case "E_VERIFY_TIMEOUT":
+                response = "Verify timeout.";
+                break;
+            case "E_INVALID_SMS_VERIFYCODE":
+                response = "SMS verify code is invalid.";
+                break;
+            case "S_SUCCESS_SMS_VERIFY":
+                response = "Success SMS verify.";
+                break;
+            case "E_INVALID_EMAIL_VERIFYCODE":
+                response = "Email verify code is invalid.";
+                break;
+            case "S_SUCCESS_EMAIL_VERIFY":
+                response = "Success email verify.";
+                break;
+            case "E_INVALID_DEVICETOKEN":
+                response = "Device token is invalid.";
+                break;
+            case "E_NOT_SMS_VERIFY":
+                response = "SMS is not verified.";
+                break;
+            case "E_NOT_EMAIL_VERIFY":
+                response = "Email is not verified.";
+                break;
+            case "E_NOT_VERIFY":
+                response = "Your account is not verified.";
+                break;
+
+            case "E_INVALID_RESETCODE":
+                response = "Reset code is invalid.";
+                break;
+            case "E_PAYPAL_CONNECTION_TIMEOUT":
+                response = "Paypal account connection timeout.";
+                break;
+            case "E_PAYPAL_UNKNOWN_ERROR":
+                response = "Unknown error with Paypal account.";
+                break;
+            case "E_PAY_CHARGE_ERROR":
+                response = "Charge balance error.";
+                break;
+            case "E_PAY_PAY_ERROR":
+                response = "Payment error.";
+                break;
+            case "E_PAY_OUT_ERROR":
+                response = "Payout error.";
+                break;
+            case "NO_SUCH_COUPONCODE":
+                response = "No such coupon code.";
+                break;
+            case "E_TWILIO_NUMBER_VERIFY_ERROR":
+                response = "Twilio SMS cannot send verify message to unverified phone number.";
+                break;
+            case "E_VERIFICATION_ERROR":
+                response = "Verification Error.";
+                break;
+            case "S_SUCCESS_LOGIN":
+                response = "Success login.";
+                break;
+            case "S_SUCCESS_LOGIN_WITHOUT_UPDATING_SERVICETYPE":
+                response = "Your service type change request has not completed because you have some incomplete rides.";
+                break;
+            case "S_SUCCESS_LOGIN_WITH_UPDATING_SERVICETYPE":
+                response = "Your service type has completed successfully.";
+                break;
+            case "S_SUCCESS_DELETECARIMAGE":
+                response = "The car image has deleted successfully.";
+                break;
+            case "S_SUCCESS_ADDCARIMAGE":
+                response = "The car image has added successfully.";
+                break;
+            default:
+                response = strKey;
+        }
+
+        return response;
     }
 }

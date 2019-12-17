@@ -401,7 +401,7 @@ public class SignUpActivity extends AppCompatActivity implements RadioGroup.OnCh
 //                                Log.i("SignUp", strValidError);
 //                            }
 
-                            Utils.displayMessage(SignUpActivity.this, data.getString("message"));
+                            Utils.displayMessage(SignUpActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

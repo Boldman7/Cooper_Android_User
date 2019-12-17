@@ -1105,7 +1105,7 @@
                                         android:layout_height="match_parent"
                                         android:layout_weight="1"
                                         android:gravity="start"
-                                        android:text="@string/wallet_detection"
+                                        android:text="@string/wallet_balance"
                                         android:textColor="@android:color/black"
                                         android:textSize="@dimen/_13sdp" />
 

@@ -447,7 +447,7 @@ public class ActivitySettings extends AppCompatActivity {
 
                             }
                         } else{
-                            Utils.displayMessage(ActivitySettings.this, data.getString("message"));
+                            Utils.displayMessage(ActivitySettings.this, Utils.parseErrorMessage(data));
                         }
 
                     } catch (Exception e) {

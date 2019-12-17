@@ -213,7 +213,7 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(WalletActivity.this, data.getString("message"));
+                            Utils.displayMessage(WalletActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -326,7 +326,7 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
                             lnrAddmoney.setVisibility(View.GONE);
 
                         } else{
-                            Utils.displayMessage(WalletActivity.this, data.getString("message"));
+                            Utils.displayMessage(WalletActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -428,7 +428,7 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
 
                         if (object.getString("status").equals("1")){
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(WalletActivity.this, data.getString("message"));
+                            Utils.displayMessage(WalletActivity.this, Utils.getMessageForKey(data.getString("message")));
 
                             balance_tv.setText(currency + data.getString("balance"));
                             SharedHelper.putKey(context, "wallet_balance", data.getString("balance"));
@@ -437,7 +437,7 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(WalletActivity.this, data.getString("message"));
+                            Utils.displayMessage(WalletActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -543,7 +543,7 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(WalletActivity.this, data.getString("message"));
+                            Utils.displayMessage(WalletActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

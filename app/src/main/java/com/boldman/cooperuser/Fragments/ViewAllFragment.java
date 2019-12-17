@@ -165,7 +165,7 @@ public class ViewAllFragment extends Fragment implements ExploreViewAllAdapter.I
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(getActivity(), data.getString("message"));
+                            Utils.displayMessage(getActivity(), Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
 

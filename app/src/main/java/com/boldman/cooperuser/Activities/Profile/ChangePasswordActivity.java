@@ -23,6 +23,7 @@ import com.boldman.cooperuser.Helper.CustomDialog;
 import com.boldman.cooperuser.Helper.SharedHelper;
 import com.boldman.cooperuser.R;
 import com.boldman.cooperuser.Utils.GlobalConstants;
+import com.boldman.cooperuser.Utils.Utils;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -153,7 +154,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            displayMessage(data.getString("message"));
+                            displayMessage(Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

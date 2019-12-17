@@ -71,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:text="@string/wallet_balance"
+                        android:text="@string/wallet_amount_is"
                         android:textColor="@color/black_text_color"
                         android:textSize="@dimen/_14sdp" />
 

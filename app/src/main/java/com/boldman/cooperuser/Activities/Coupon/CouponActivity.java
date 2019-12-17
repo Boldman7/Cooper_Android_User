@@ -243,7 +243,7 @@ public class CouponActivity extends AppCompatActivity {
                             getCoupon();
                         }
 
-                        Utils.displayMessage(CouponActivity.this, data.getString("message"));
+                        Utils.displayMessage(CouponActivity.this, Utils.parseErrorMessage(data));
 
                     } catch (Exception e) {
                         e.printStackTrace();

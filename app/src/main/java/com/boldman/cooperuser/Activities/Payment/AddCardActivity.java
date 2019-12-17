@@ -212,7 +212,7 @@ public class AddCardActivity extends Activity {
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(AddCardActivity.this, data.getString("message"));
+                            Utils.displayMessage(AddCardActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

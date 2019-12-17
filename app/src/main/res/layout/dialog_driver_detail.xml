@@ -79,6 +79,7 @@
             android:textSize="@dimen/_13sdp"/>
 
         <TextView
+            android:id="@+id/tv_car_model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HONDA"
@@ -100,6 +101,7 @@
             android:textSize="@dimen/_13sdp"/>
 
         <TextView
+            android:id="@+id/tv_car_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="QB653SN"

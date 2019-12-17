@@ -155,13 +155,13 @@ public class UpcomingTripDetailActivity extends AppCompatActivity {
 
                         if (object.getString("status").equals("1")){
 
-                            Utils.displayMessage(mActivity, data.getString("message"));
+                            Utils.displayMessage(mActivity, Utils.getMessageForKey(data.getString("message")));
                             mReasonDialog.dismiss();
 
                             finish();
 
                         } else{
-                            Utils.displayMessage(mActivity, data.getString("message"));
+                            Utils.displayMessage(mActivity, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

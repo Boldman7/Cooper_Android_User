@@ -436,11 +436,11 @@ public class EditProfileActivity extends AppCompatActivity implements RadioGroup
                     JSONObject data = jsonObject.getJSONObject("data");
 
                     if (jsonObject.getString("status").equals("1")) {
-                        Utils.displayMessage(mActivity, data.getString("message"));
+                        Utils.displayMessage(mActivity, Utils.getMessageForKey(data.getString("message")));
                         getProfile();
 
                     } else {
-                        Utils.displayMessage(mActivity, data.getString("message"));
+                        Utils.displayMessage(mActivity, Utils.parseErrorMessage(data));
                     }
 
                 } catch (JSONException e) {
@@ -545,11 +545,11 @@ public class EditProfileActivity extends AppCompatActivity implements RadioGroup
                         JSONObject data = object.getJSONObject("data");
 
                         if (object.getString("status").equals("1")) {
-                            Utils.displayMessage(mActivity, data.getString("message"));
+                            Utils.displayMessage(mActivity, Utils.getMessageForKey(data.getString("message")));
                             getProfile();
 
                         } else {
-                            Utils.displayMessage(mActivity, data.getString("message"));
+                            Utils.displayMessage(mActivity, Utils.parseErrorMessage(data));
                         }
 
                     } catch (Exception e) {
@@ -720,7 +720,7 @@ public class EditProfileActivity extends AppCompatActivity implements RadioGroup
 
                         } else {
 
-                            Utils.displayMessage(mActivity, data.getString("message"));
+                            Utils.displayMessage(mActivity, Utils.parseErrorMessage(data));
                         }
 
                     } catch (Exception e) {

@@ -616,7 +616,7 @@ public class GooglePlaceSearchActivity extends AppCompatActivity implements Goog
 
                         } else{
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(mActivity, data.getString("message"));
+                            Utils.displayMessage(mActivity, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

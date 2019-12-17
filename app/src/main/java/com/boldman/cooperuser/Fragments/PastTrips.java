@@ -137,7 +137,7 @@ public class PastTrips extends Fragment {
 
                             errorLayout.setVisibility(View.VISIBLE);
                             listView.setVisibility(View.GONE);
-                            Utils.displayMessage(getActivity(), data.getString("message"));
+                            Utils.displayMessage(getActivity(), Utils.parseErrorMessage(data));
                         }
 
                     } catch (Exception e) {

@@ -1,16 +1,20 @@
 package com.boldman.cooperuser.Model;
 
-public class RequestUserPay {
-    private float pay_amount;
+import java.io.Serializable;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
+public class RequestUserPay implements Serializable {
+
+    private float distance;
+    private float duration;
+    private float base_fee;
+    private float distance_fee;
+    private float tax_fee;
     private String user_time;
     private String server_time;
-
-    public void setPayAmount(float sPayAmount){ pay_amount = sPayAmount; }
-    public void setUserTime(String sUserTime){ user_time = sUserTime; }
-    public void setsServerTime(String sServerTime){ server_time = sServerTime; }
-
-    public float getPayAmount() { return pay_amount;}
-    public String getUserTime() { return user_time;}
-    public String getServerTime() { return server_time;}
-
 }

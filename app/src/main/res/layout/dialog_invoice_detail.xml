@@ -292,34 +292,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/walletDetectionLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:text="@string/wallet_detection"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_13sdp" />
-
-            <TextView
-                android:id="@+id/lblWalletPrice"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="@string/sample_base_price"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_13sdp" />
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_5sdp"

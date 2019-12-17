@@ -386,7 +386,7 @@ public class SocialLoginActivity extends AppCompatActivity implements GoogleApiC
                         } else{
 
                             JSONObject data = object.getJSONObject("data");
-                            Utils.displayMessage(SocialLoginActivity.this, data.getString("message"));
+                            Utils.displayMessage(SocialLoginActivity.this, Utils.parseErrorMessage(data));
                             GoToLoginActivity();
                         }
                     } catch (Exception e) {

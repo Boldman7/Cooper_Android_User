@@ -183,7 +183,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                         } else{
                             JSONObject data = object.getJSONObject("data");
 
-                            displayMessage(ForgotPasswordActivity.this, data.getString("message"));
+                            displayMessage(ForgotPasswordActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -251,7 +251,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                         } else{
                             JSONObject data = object.getJSONObject("data");
 
-                            displayMessage(ForgotPasswordActivity.this, data.getString("message"));
+                            displayMessage(ForgotPasswordActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

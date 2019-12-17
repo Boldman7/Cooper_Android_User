@@ -18,6 +18,7 @@ public class DirectionsJSONParser {
 
     String timeEstimate, distanceKmText;
     int distanceMeter, timeSeconds;
+    String startAddress, endAddress;
 
     /** Receives a JSONObject and returns a list of lists containing latitude and longitude */
     public List<List<HashMap<String, String>>> parse(JSONObject jObject){
@@ -36,6 +37,8 @@ public class DirectionsJSONParser {
                 jLegs = ( (JSONObject)jRoutes.get(i)).getJSONArray("legs");
                 List path = new ArrayList<HashMap<String, String>>();
 
+                startAddress = ((String)((JSONObject)jLegs.get(0)).get("start_address"));
+                endAddress = ((String)((JSONObject)jLegs.get(0)).get("end_address"));
                 timeEstimate = (String)((JSONObject)((JSONObject)jLegs.get(0)).get("duration")).get("text");
                 timeSeconds  = (int)((JSONObject)((JSONObject)jLegs.get(0)).get("duration")).get("value");
                 distanceKmText = (String)((JSONObject)((JSONObject)jLegs.get(0)).get("distance")).get("text");
@@ -113,5 +116,7 @@ public class DirectionsJSONParser {
     public int getTimeSeconds() { return timeSeconds;}
     public String getDistanceKmText() { return distanceKmText;}
     public int getDistanceMeter() { return distanceMeter;}
+    public String getStartAddress() { return startAddress; }
+    public String getEndAddress() { return endAddress; }
 
 }

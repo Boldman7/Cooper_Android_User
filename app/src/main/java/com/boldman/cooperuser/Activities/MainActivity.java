@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements
             loadHomeFragment();
         }
 
-
     }
 
     private void goToLoginActivity() {
@@ -164,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements
 
                         } else {
 
-                            Utils.displayMessage(MainActivity.this, data.getString("message"));
+                            Utils.displayMessage(MainActivity.this, Utils.parseErrorMessage(data));
                         }
 
                     } catch (Exception e) {
@@ -224,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements
                         } else{
                             JSONObject data = object.getJSONObject("data");
                             SharedHelper.putKey(context, "payment_mode", "CASH");
-                            Utils.displayMessage(MainActivity.this, data.getString("message"));
+                            Utils.displayMessage(MainActivity.this, Utils.parseErrorMessage(data));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

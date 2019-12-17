@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.boldman.cooperuser.Model.DriverInfo;
 import com.boldman.cooperuser.R;
+import com.boldman.cooperuser.Utils.Utils;
 
 import java.util.List;
 
@@ -67,13 +68,19 @@ public class ProviderListAdapter extends ArrayAdapter<DriverInfo> {
 
             ratingBar.setRating(list.get(position).getAvgRating());
             tvName.setText(list.get(position).getFirstName() + " " + list.get(position).getLastName());
-            tvDistance.setText("1.5 km");
-            tvCarModelNumber.setText(list.get(position).getCarModel() + " - " + list.get(position).getCarNumber());
+            tvDistance.setText(Utils.roundTwoDecimals(list.get(position).getDistance() / 1000) + " Km");
 
             if (list.get(position).getGender() == 2)
                 tvGender.setText(context.getString(R.string.female));
             else
                 tvGender.setText(context.getString(R.string.male));
+
+            String strCarModel = list.get(position).getCarModel();
+            strCarModel = strCarModel == null ? "" : strCarModel;
+            String strCarNumber = list.get(position).getCarNumber();
+            strCarNumber = strCarNumber == null ? "" : strCarNumber;
+
+            tvCarModelNumber.setText(strCarModel + " - " + strCarNumber);
 
         } catch (Exception e) {
 
