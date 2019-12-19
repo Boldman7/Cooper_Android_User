@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:text="Gender: "
             android:layout_gravity="center_vertical"
-            android:textSize="@dimen/_13sdp"
+            android:textSize="@dimen/_12sdp"
             android:paddingStart="@dimen/_10sdp"/>
 
         <TextView
@@ -64,7 +64,8 @@
         android:id="@+id/recycler_car_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"/>
+        android:scrollbars="horizontal"
+        android:layout_marginTop="@dimen/_10sdp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HONDA"
-            android:textSize="@dimen/_13sdp"
+            android:textSize="@dimen/_12sdp"
             android:textStyle="bold"/>
 
     </LinearLayout>
@@ -98,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="License Plate: "
-            android:textSize="@dimen/_13sdp"/>
+            android:textSize="@dimen/_12sdp"/>
 
         <TextView
             android:id="@+id/tv_car_number"
@@ -114,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recent reviews: "
-        android:textSize="@dimen/_13sdp"
+        android:textSize="@dimen/_12sdp"
         android:paddingTop="@dimen/_5sdp"/>
 
     <LinearLayout
@@ -128,7 +129,7 @@
             android:id="@+id/recycler_driver_review"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="horizontal"/>
+            android:scrollbars="vertical"/>
 
     </LinearLayout>
 

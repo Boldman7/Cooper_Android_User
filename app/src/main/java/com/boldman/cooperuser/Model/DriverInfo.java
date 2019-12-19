@@ -1,5 +1,7 @@
 package com.boldman.cooperuser.Model;
 
+import org.json.JSONArray;
+
 import java.util.List;
 
 public class DriverInfo {
@@ -19,6 +21,7 @@ public class DriverInfo {
     private float distance;
     private int service_type;
     private float avg_rating;
+    private Object car_image;
     private List<CarImage> carImageList;
 
     public void setEmail(String sEmail){ email = sEmail; }
@@ -36,6 +39,7 @@ public class DriverInfo {
     public void setDistance(float sDistance){ distance = sDistance;}
     public void setServiceType(int sServiceType){ service_type = sServiceType;}
     public void setAvgRating(float sAvgRating) { avg_rating = sAvgRating;}
+    public void setCarImage(Object sCarImage) { car_image = sCarImage;}
     public void setCarImageList(List<CarImage> sCarImageList) { carImageList = sCarImageList;}
 
     public String getEmail() { return email;}
@@ -53,5 +57,6 @@ public class DriverInfo {
     public float getDistance() { return distance;}
     public float getServiceType() { return service_type;}
     public float getAvgRating() { return avg_rating;}
+    public Object getCarImage() { return car_image;}
     public List<CarImage> getCarImageList() { return carImageList; }
 }

@@ -22,6 +22,8 @@ import com.boldman.cooperuser.Utils.Utils;
 
 import java.util.List;
 
+import okhttp3.internal.Util;
+
 
 public class ProviderListAdapter extends ArrayAdapter<DriverInfo> {
 
@@ -56,6 +58,7 @@ public class ProviderListAdapter extends ArrayAdapter<DriverInfo> {
         RatingBar ratingBar = itemView.findViewById(R.id.ratingProvider);
         TextView tvName = itemView.findViewById(R.id.tvName);
         TextView tvDistance = itemView.findViewById(R.id.tvDistance);
+        TextView tvEta = itemView.findViewById(R.id.tv_eta);
         TextView tvCarModelNumber = itemView.findViewById(R.id.tvCarModelNumber);
         TextView tvGender = itemView.findViewById(R.id.tVGender);
         Button btnRequest = itemView.findViewById(R.id.btnSelectRequest);
@@ -69,6 +72,7 @@ public class ProviderListAdapter extends ArrayAdapter<DriverInfo> {
             ratingBar.setRating(list.get(position).getAvgRating());
             tvName.setText(list.get(position).getFirstName() + " " + list.get(position).getLastName());
             tvDistance.setText(Utils.roundTwoDecimals(list.get(position).getDistance() / 1000) + " Km");
+            tvEta.setText(Utils.roundTwoDecimals(list.get(position).getDistance() / 400) + " min");
 
             if (list.get(position).getGender() == 2)
                 tvGender.setText(context.getString(R.string.female));

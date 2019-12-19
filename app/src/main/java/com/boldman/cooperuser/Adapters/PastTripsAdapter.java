@@ -67,9 +67,13 @@ public class PastTripsAdapter extends ArrayAdapter<YourTrips> {
             holder.tripCost.setText("$" + yourTrips.getPay_amount());
         else {
             if (yourTrips.getCancel_by().equalsIgnoreCase("user"))
-                holder.tripCost.setText("Cancelled by User");
-            else
+                holder.tripCost.setText("Cancelled by Rider");
+            else if (yourTrips.getCancel_by().equalsIgnoreCase("driver"))
                 holder.tripCost.setText("Cancelled by Driver");
+            else if (yourTrips.getCancel_by().equalsIgnoreCase("auto_user"))
+                holder.tripCost.setText("Cancelled automatically");
+            else if (yourTrips.getCancel_by().equalsIgnoreCase("auto_driver"))
+                holder.tripCost.setText("Cancelled automatically");
         }
 
         holder.tripView.setOnClickListener(new View.OnClickListener(){

@@ -68,6 +68,10 @@ public interface ApiInterface {
     Call<ResponseBody> doFinishedRides(@Body JsonObject body);
 
     @Headers("Content-Type: application/json")
+    @POST("driver/finished_rides2")
+    Call<ResponseBody> doFinishedRides2(@Body JsonObject body);
+
+    @Headers("Content-Type: application/json")
     @POST("user/change_password")
     Call<ResponseBody> doChangePassword(@Body JsonObject body);
 
@@ -159,8 +163,6 @@ public interface ApiInterface {
 //    @POST("user/update_profile")
 //    Call<ResponseBody> doUpdateProfile(@PartMap Map<String, RequestBody> map);
 
-
-    @GET("json?")
+    @GET("geocode/json?")
     Call<ResponseBody> getGoogleMapResponse(@Query("latlng") String param1, @Query("key") String param2);
-
 }

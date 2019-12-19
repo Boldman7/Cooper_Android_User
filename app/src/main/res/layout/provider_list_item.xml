@@ -83,17 +83,17 @@
                         android:textColor="@color/light_gray"
                         android:textSize="@dimen/_10sdp" />
 
-<!--                    <Space-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="@dimen/_5sdp" />-->
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_5sdp" />
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="end"-->
-<!--                        android:text="ETA: "-->
-<!--                        android:textColor="@color/light_gray"-->
-<!--                        android:textSize="@dimen/_10sdp" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="ETA: "
+                        android:textColor="@color/light_gray"
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -112,18 +112,18 @@
                         android:textSize="@dimen/_11sdp"
                         android:textStyle="bold"/>
 
-<!--                    <Space-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="@dimen/_5sdp"/>-->
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_5sdp"/>
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_eta"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="0 Sec"-->
-<!--                        android:textColor="@color/black_text_color"-->
-<!--                        android:textSize="@dimen/_11sdp"-->
-<!--                        android:textStyle="bold"/>-->
+                    <TextView
+                        android:id="@+id/tv_eta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 Sec"
+                        android:textColor="@color/black_text_color"
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 

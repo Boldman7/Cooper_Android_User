@@ -84,35 +84,60 @@ public class PastTripDetailActivity extends AppCompatActivity {
                 mTaxPrice = trip.getTax_fee();
                 mTotalPrice = trip.getPay_amount();
 
-                if (trip.getCoupon_id() == 0){
+                ((TextView) view.findViewById(R.id.booking_id)).setText(trip.getId() + "");
 
-                    view.findViewById(R.id.discountDetectionLayout).setVisibility(View.GONE);
-                    view.findViewById(R.id.subtotal2Layout).setVisibility(View.GONE);
 
-                    ((TextView) view.findViewById(R.id.lblBasePrice)).setText("$" + Utils.roundTwoDecimals(mBasePrice));
-                    ((TextView) view.findViewById(R.id.lblDistancePrice)).setText("$" + Utils.roundTwoDecimals(mEstimatedFair));
-                    ((TextView) view.findViewById(R.id.lblSubtotal)).setText("$" + Utils.roundTwoDecimals(mSubTotal));
-                    ((TextView) view.findViewById(R.id.lblTaxTag)).setText("VAT (" + GlobalConstants.VAT_FEE + "%)");
-                    ((TextView) view.findViewById(R.id.lblTaxPrice)).setText("$" + Utils.roundTwoDecimals(mTaxPrice));
-                    ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("$" + Utils.roundTwoDecimals(mTotalPrice));
+                if (trip.getStatus() == 1) {
 
-                } else{
+                    view.findViewById(R.id.lyt_main_ride_prices).setVisibility(View.GONE);
 
-                    mDiscountAmount = trip.getDiscount_fee();
-                    mSubTotal2 = mSubTotal - mDiscountAmount;
+                    if (trip.getCancel_by().equalsIgnoreCase("user")) {
 
-                    view.findViewById(R.id.discountDetectionLayout).setVisibility(View.VISIBLE);
-                    view.findViewById(R.id.subtotal2Layout).setVisibility(View.VISIBLE);
+                        ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("Cancelled by Rider");
 
-                    ((TextView) view.findViewById(R.id.lblBasePrice)).setText("$" + Utils.roundTwoDecimals(mBasePrice));
-                    ((TextView) view.findViewById(R.id.lblDistancePrice)).setText("$" + Utils.roundTwoDecimals(mEstimatedFair));
-                    ((TextView) view.findViewById(R.id.lblSubtotal)).setText("$" + Utils.roundTwoDecimals(mSubTotal));
-                    ((TextView) view.findViewById(R.id.lblSubtotal2)).setText("$" + Utils.roundTwoDecimals(mSubTotal2));
-                    ((TextView) view.findViewById(R.id.lblDiscountPrice)).setText("$" + Utils.roundTwoDecimals(mDiscountAmount));
-                    ((TextView) view.findViewById(R.id.lblTaxTag)).setText("VAT (" + GlobalConstants.VAT_FEE + "%)");
-                    ((TextView) view.findViewById(R.id.lblTaxPrice)).setText("$" + Utils.roundTwoDecimals(mTaxPrice));
-                    ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("$" + Utils.roundTwoDecimals(mTotalPrice));
+                    } else if (trip.getCancel_by().equalsIgnoreCase("driver")) {
 
+                        ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("Cancelled by Driver");
+
+                    } else if (trip.getCancel_by().equalsIgnoreCase("auto_user")) {
+                        ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("Automatically cancelled.");
+                    } else if (trip.getCancel_by().equalsIgnoreCase("auto_driver")) {
+                        ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("Automatically cancelled.");
+                    }
+                } else {
+
+                    view.findViewById(R.id.lyt_main_ride_prices).setVisibility(View.VISIBLE);
+
+                    if (trip.getCoupon_id() == 0) {
+
+                        view.findViewById(R.id.discountDetectionLayout).setVisibility(View.GONE);
+                        view.findViewById(R.id.subtotal2Layout).setVisibility(View.GONE);
+
+                        ((TextView) view.findViewById(R.id.lblBasePrice)).setText("$" + Utils.roundTwoDecimals(mBasePrice));
+                        ((TextView) view.findViewById(R.id.lblDistancePrice)).setText("$" + Utils.roundTwoDecimals(mEstimatedFair));
+                        ((TextView) view.findViewById(R.id.lblSubtotal)).setText("$" + Utils.roundTwoDecimals(mSubTotal));
+                        ((TextView) view.findViewById(R.id.lblTaxTag)).setText("VAT (" + GlobalConstants.VAT_FEE + "%)");
+                        ((TextView) view.findViewById(R.id.lblTaxPrice)).setText("$" + Utils.roundTwoDecimals(mTaxPrice));
+                        ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("$" + Utils.roundTwoDecimals(mTotalPrice));
+
+                    } else {
+
+                        mDiscountAmount = trip.getDiscount_fee();
+                        mSubTotal2 = mSubTotal - mDiscountAmount;
+
+                        view.findViewById(R.id.discountDetectionLayout).setVisibility(View.VISIBLE);
+                        view.findViewById(R.id.subtotal2Layout).setVisibility(View.VISIBLE);
+
+                        ((TextView) view.findViewById(R.id.lblBasePrice)).setText("$" + Utils.roundTwoDecimals(mBasePrice));
+                        ((TextView) view.findViewById(R.id.lblDistancePrice)).setText("$" + Utils.roundTwoDecimals(mEstimatedFair));
+                        ((TextView) view.findViewById(R.id.lblSubtotal)).setText("$" + Utils.roundTwoDecimals(mSubTotal));
+                        ((TextView) view.findViewById(R.id.lblSubtotal2)).setText("$" + Utils.roundTwoDecimals(mSubTotal2));
+                        ((TextView) view.findViewById(R.id.lblDiscountPrice)).setText("$" + Utils.roundTwoDecimals(mDiscountAmount));
+                        ((TextView) view.findViewById(R.id.lblTaxTag)).setText("VAT (" + GlobalConstants.VAT_FEE + "%)");
+                        ((TextView) view.findViewById(R.id.lblTaxPrice)).setText("$" + Utils.roundTwoDecimals(mTaxPrice));
+                        ((TextView) view.findViewById(R.id.lblTotalPrice)).setText("$" + Utils.roundTwoDecimals(mTotalPrice));
+
+                    }
                 }
 
                 builder.setView(view)

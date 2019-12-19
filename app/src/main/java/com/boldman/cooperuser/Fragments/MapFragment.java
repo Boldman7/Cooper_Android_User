@@ -64,6 +64,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -72,6 +73,8 @@ import com.boldman.cooperuser.Activities.Coupon.CouponActivity;
 import com.boldman.cooperuser.Activities.Service.ExploreActivity;
 import com.boldman.cooperuser.Activities.Service.GooglePlaceSearchActivity;
 import com.boldman.cooperuser.Activities.Wallet.WalletActivity;
+import com.boldman.cooperuser.Adapters.CarImageViewAdapter;
+import com.boldman.cooperuser.Adapters.DriverReviewsAdapter;
 import com.boldman.cooperuser.Adapters.ProviderListAdapter;
 import com.boldman.cooperuser.Api.ApiClient;
 import com.boldman.cooperuser.Api.ApiInterface;
@@ -82,6 +85,7 @@ import com.boldman.cooperuser.Helper.SharedHelper;
 import com.boldman.cooperuser.Model.AcceptedDriverInfo;
 import com.boldman.cooperuser.Model.CallBack;
 import com.boldman.cooperuser.Model.CancelUserSelect;
+import com.boldman.cooperuser.Model.CarImage;
 import com.boldman.cooperuser.Model.CardDetails;
 import com.boldman.cooperuser.Model.DriverInfo;
 import com.boldman.cooperuser.Model.FinishRide;
@@ -93,6 +97,7 @@ import com.boldman.cooperuser.Adapters.ServiceTypePagerAdapter;
 import com.boldman.cooperuser.Model.StartRide;
 import com.boldman.cooperuser.Model.UserArrived;
 import com.boldman.cooperuser.Model.UserLocationInfo;
+import com.boldman.cooperuser.Model.YourTrips;
 import com.boldman.cooperuser.QuickBlox.MessageChat.MessagingActivity;
 import com.boldman.cooperuser.QuickBlox.MessageChat.QBMgr;
 import com.boldman.cooperuser.QuickBlox.VideoChat.activities.CallActivity;
@@ -347,6 +352,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     ListView lvProvider;
     Button btnRequestNearest, btnBack;
     android.app.AlertDialog dlgDetail;
+    DriverReviewsAdapter mDriverReviewsAdapter;
+    CarImageViewAdapter mCarImageViewAdapter;
 
 //         <!--3. Waiting For Providers ...-->
 
@@ -2259,7 +2266,21 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                         mListDriverInfo = new Gson().fromJson(data, new TypeToken<List<DriverInfo>>() {
                         }.getType());
 
-                        Log.i("near_drivers", res + "");
+                        Log.i("near_drivers", mListDriverInfo + "");
+
+                        for (DriverInfo drvInfo : mListDriverInfo){
+
+                            Object arrCarImage = drvInfo.getCarImage();
+                            List<CarImage> listCarImage = new ArrayList<>();
+
+                            JsonParser parser1 = new JsonParser();
+                            JsonArray data1 = (JsonArray) parser1.parse(arrCarImage.toString());
+
+                            listCarImage = new Gson().fromJson(data1, new TypeToken<List<CarImage>>() {
+                            }.getType());
+
+                            drvInfo.setCarImageList(listCarImage);
+                        }
 
                         setDriverList(mListDriverInfo);
 
@@ -2932,7 +2953,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                     },
                     position -> {
 
-                        displayScreenProviderDetail(mListDriverInfo.get(position));
+                        // Get Reviews ???
+                        getProviderDetail(mListDriverInfo.get(position).getEmail(), position);
+
                     });
 
             lvProvider.setAdapter(mProviderListAdapter);
@@ -2950,7 +2973,79 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         layoutChanges();
     }
 
-    private void displayScreenProviderDetail(DriverInfo driverInfo){
+    private void getProviderDetail(String providerEmail, int position) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+        JsonObject gsonObject = new JsonObject();
+        try {
+            JSONObject paramObject = new JSONObject();
+
+            paramObject.put("email", providerEmail);
+
+            Log.i("provider_email", providerEmail);
+
+            JsonParser jsonParser = new JsonParser();
+            gsonObject = (JsonObject) jsonParser.parse(paramObject.toString());
+
+            apiInterface.doFinishedRides2(gsonObject).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                    try {
+                        JSONObject object = new JSONObject(response.body().string());
+                        JSONObject data = object.getJSONObject("data");
+
+                        if (object.getString("status").equals("1")) {
+
+                            try {
+
+                                JSONArray rides = data.getJSONArray("rides");
+
+                                List<YourTrips> driverFinishedRides = new ArrayList<>();
+
+                                //  Receive the reponse data from server.
+                                driverFinishedRides = new Gson().fromJson(rides.toString(), new TypeToken<List<YourTrips>>() {
+                                }.getType());
+
+                                displayScreenProviderDetail(mListDriverInfo.get(position), driverFinishedRides);
+
+                            } catch (Exception e) {
+                                Log.e("HERE", e.getMessage());
+                            }
+
+                        } else {
+
+                            Utils.displayMessage(getActivity(), Utils.parseErrorMessage(data));
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Utils.displayMessage(getActivity(), getString(R.string.server_connect_error));
+                    }
+
+                    progressDialog.dismiss();
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    progressDialog.dismiss();
+                    t.printStackTrace();
+                    Utils.displayMessage(getActivity(), getString(R.string.server_connect_error));
+                }
+            });
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void displayScreenProviderDetail(DriverInfo driverInfo, List<YourTrips> driverFinishedRides){
 
         final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(mContext);
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_driver_detail, null);
@@ -2960,6 +3055,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         TextView tvCarModel = view.findViewById(R.id.tv_car_model);
         TextView tvCarNumber = view.findViewById(R.id.tv_car_number);
         RatingBar ratingBarDriver = view.findViewById(R.id.rb_driver_rating);
+        RecyclerView rcvCarImage = view.findViewById(R.id.recycler_car_image);
+        RecyclerView rcvReview = view.findViewById(R.id.recycler_driver_review);
 
         Button btnClose = view.findViewById(R.id.btn_close);
 
@@ -2968,6 +3065,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         tvCarModel.setText(driverInfo.getCarModel() == null ? "" : driverInfo.getCarModel());
         tvCarNumber.setText(driverInfo.getCarNumber() == null ? "" : driverInfo.getCarNumber());
         ratingBarDriver.setRating(driverInfo.getAvgRating());
+
+        mDriverReviewsAdapter = new DriverReviewsAdapter(driverFinishedRides);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext);
+        rcvReview.setLayoutManager(mLayoutManager);
+        rcvReview.setItemAnimator(new DefaultItemAnimator());
+        rcvReview.setAdapter(mDriverReviewsAdapter);
+
+        mCarImageViewAdapter = new CarImageViewAdapter(driverInfo.getCarImageList());
+        RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+        rcvCarImage.setLayoutManager(mLayoutManager1);
+        rcvCarImage.setItemAnimator(new DefaultItemAnimator());
+        rcvCarImage.setAdapter(mCarImageViewAdapter);
 
         builder.setView(view)
                 .setCancelable(true);
@@ -3947,7 +4056,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         String output = "json";
 
         // Building the url to the web service (Replace API key!!!!!!!!!!!!!!!!!!!!!!)
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + "AIzaSyDqn6VHrQP2ejkz20LpLqBwNcowe27xGf8";
+        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.google_map_api);
 
         return url;
     }

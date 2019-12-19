@@ -2,7 +2,7 @@ package com.boldman.cooperuser.Helper;
 
 public class UrlHelper {
 
-    public static final String map_address_url = "https://maps.googleapis.com/maps/api/geocode/";
+    public static final String map_address_url = "https://maps.googleapis.com/maps/api/";
 
     public static final String GOOGLE_NEARBY_SEARCH(String location,String radius,String type,String key){
         return "https://maps.googleapis.com/maps/api/place/textsearch/json?"+"&query="+type+"&location="+location+"&radius="+radius+"&key="+key;

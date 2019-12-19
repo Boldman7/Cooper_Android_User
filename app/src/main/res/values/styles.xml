@@ -27,7 +27,10 @@
         ... // Additional customizations
     </style>
 
-
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/orange</item>
+        <item name="colorControlActivated">@color/light_grey</item>
+    </style>
     <!-- QB Video Chat -->
 
     <style name="VideoChatTheme" parent="AppTheme.Base">

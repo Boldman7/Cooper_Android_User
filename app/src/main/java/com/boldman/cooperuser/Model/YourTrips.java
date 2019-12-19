@@ -75,4 +75,5 @@ public class YourTrips implements Serializable {
     private double last_lat;
     private double last_lon;
     private String fc_at;
+    private String username;
 }
