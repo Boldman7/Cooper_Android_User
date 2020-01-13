@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.core.app.NotificationManagerCompat;
 
 import com.quickblox.chat.QBRestChatService;
@@ -38,6 +40,9 @@ public class NotificationActionReceiver extends BroadcastReceiver {
         String action = intent.getAction();
         int notificationId = intent.getIntExtra("NOTIFICATION_ID", -1);
         String dialogId = intent.getStringExtra("DIALOG_ID");
+
+        Log.i("QB_Dialog_id", dialogId);
+
         String messageId = intent.getStringExtra("MESSAGE_ID");
 
         if (action.equals("REPLY_INTENT")) {

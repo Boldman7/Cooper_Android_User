@@ -23,11 +23,11 @@
 
             <ImageView
                 android:id="@+id/user_image_menu"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_10sdp"
                 android:src="@drawable/user_default_sidebar"
                 android:background="@drawable/round_circle_white"/>
 
@@ -49,7 +49,8 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/make_money_driving"
                 android:textColor="@color/text_color_white"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -127,7 +128,8 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:textSize="@dimen/_14sdp"
             android:id="@+id/free_rides_menu"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="wrap_content"

@@ -45,15 +45,6 @@
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_15sdp" />
 
-                <TextView
-                    android:id="@+id/txt_offer_title_and_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:singleLine="true"
-                    android:text="Name"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/_12sdp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -120,14 +111,15 @@
             <EditText
                 android:id="@+id/edt_txt_message"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:inputType="textPersonName"
                 android:maxLength="@integer/edit_text_max_len_500"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_12sdp"
-                tools:text="Here..." />
+                tools:text="Here..."
+                android:background="@android:color/transparent"/>
 
             <ImageView
                 android:id="@+id/imageView29"
@@ -136,7 +128,9 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="3dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/emoticon" />
+                app:srcCompat="@drawable/emoticon"
+                android:visibility="gone"/>
+
         </LinearLayout>
 
         <ImageView

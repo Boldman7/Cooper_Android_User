@@ -1,5 +1,6 @@
 package com.boldman.cooperuser.QuickBlox.MessageChat;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +16,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.boldman.cooperuser.EventBus.MessageEvent;
+import com.boldman.cooperuser.Helper.SharedHelper;
 import com.boldman.cooperuser.R;
 import com.boldman.cooperuser.Utils.DateUtil;
+import com.boldman.cooperuser.Utils.GlobalConstants;
 import com.quickblox.chat.QBChatService;
 import com.quickblox.chat.QBRestChatService;
 import com.quickblox.chat.exception.QBChatException;
@@ -26,6 +30,8 @@ import com.quickblox.chat.request.QBMessageGetBuilder;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.helper.StringifyArrayList;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -47,8 +53,10 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
     protected ListView listView;
     protected MessagingListAdapter listAdapter;
 
-    int my_qb_id;
-    int other_qb_id;
+    int myQBId;
+    String myName;
+    int partnerQBId;
+    String partnerName;
 
     public static void finishActivity() {
         MessagingActivity activity = s_instance;
@@ -63,8 +71,10 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
         // Parse intent data
         Intent intent = getIntent();
 
-        my_qb_id = intent.getIntExtra("OfferId", -1); // this can be made by me or another
-        other_qb_id = intent.getIntExtra("OfferPartnerID", -1); // this can be me or another
+        myQBId = intent.getIntExtra("OfferId", -1); // this can be made by me or another
+        myName = intent.getStringExtra("OfferName");
+        partnerQBId = intent.getIntExtra("OfferPartnerID", -1); // this can be me or another
+        partnerName = intent.getStringExtra("OfferPartnerName");
 
         dialogId = intent.getStringExtra("DialogId"); // can be null
         if (dialogId != null) {
@@ -85,19 +95,7 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
             }
         });
 
-        ((TextView) findViewById(R.id.txt_partner_name)).setText("My partner name");
-
-//        if (isThisMyActiveOffer) {
-//            ((TextView) findViewById(R.id.txt_offer_title_and_location)).setText(
-//                    getResources().getString(R.string.your_offer)
-//                            + " - "
-//                            + offer.getTitle());
-//        } else {
-//            ((TextView) findViewById(R.id.txt_offer_title_and_location)).setText(
-//                    offer.getTitle()
-//                            + "-"
-//                            + offer.getLocation().getName());
-//        }
+        ((TextView) findViewById(R.id.txt_partner_name)).setText(partnerName);
 
         // Message list view
         listView = (ListView) findViewById(R.id.listview_messaging);
@@ -110,7 +108,6 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
 
         this.listAdapter = new MessagingListAdapter(this);
         listView.setAdapter(listAdapter);
-        QBMgr.addMsgToAdapter(dialogId, listAdapter);
 
         // Send message button
         findViewById(R.id.view_send_message).setOnClickListener(new View.OnClickListener() {
@@ -126,14 +123,15 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
 
                 if (chat == null) {
                     QBMgr.createChatDialog(
-                            my_qb_id,
-                            other_qb_id,
+                            myQBId,
+                            partnerQBId,
                             new QBEntityCallback<QBChatDialog>() {
 
                                 @Override
                                 public void onSuccess(QBChatDialog result, Bundle params) {
 
                                     dialogId = result.getDialogId();
+
                                     chat = result;
                                     sendMsg(message, true);
                                 }
@@ -151,18 +149,55 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
             }
         });
 
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        QBMgr.createChatDialog(
+                myQBId,
+                partnerQBId,
+                new QBEntityCallback<QBChatDialog>() {
+
+                    @Override
+                    public void onSuccess(QBChatDialog result, Bundle params) {
+
+                        progressDialog.dismiss();
+
+                        dialogId = result.getDialogId();
+                        chat = result;
+
+                        QBMgr.addMsgToAdapter(dialogId, listAdapter);
+
+                        // Receive existing message
+                        receiveMsg(0); // ignore stored message count
+                    }
+
+                    @Override
+                    public void onError(QBResponseException responseException) {
+
+                        progressDialog.dismiss();
+                        Toast.makeText(MessagingActivity.this, "There's a problem with chat server.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
         // Set incoming message listener
         QBMgr.setExternalDlgMsgListenerForMessaging(this);
 
-        // Receive existing message
-        receiveMsg(0); // ignore stored message count
-
         s_instance = this;
+
+        // For showing unread message count
+        GlobalConstants.isMsgActivity = true;
+        SharedHelper.putKey(this, "cntUnreadMsg", 0 + "");
+        EventBus.getDefault().post(new MessageEvent.ReceivedMessage(0));
+
     }
 
     @Override
     public void onDestroy() {
+
         s_instance = null;
+        GlobalConstants.isMsgActivity = false;
         super.onDestroy();
     }
 
@@ -248,8 +283,8 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
     protected void sendMsg(final String message, boolean setJSONData) {
         final QBChatMessage msg = new QBChatMessage();
         msg.setDialogId(chat.getDialogId());
-        msg.setSenderId((int) my_qb_id);
-        msg.setRecipientId((int) other_qb_id);
+        msg.setSenderId((int) myQBId);
+        msg.setRecipientId((int) partnerQBId);
         msg.setBody(message);
 
         // TODO : always setting ?
@@ -301,7 +336,12 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
             if (position < msgSize - 1)
                 nextMsg = getItem(position + 1);
 //
-            boolean isMe = msg.getSenderId().equals(my_qb_id);
+            boolean isMe = msg.getSenderId().equals(myQBId);
+
+//            Toast.makeText(MessagingActivity.this, "myQBId: " + myQBId, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MessagingActivity.this, "msg_sender_id: " + msg.getSenderId(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MessagingActivity.this, "isMe: " + isMe, Toast.LENGTH_SHORT).show();
+
             boolean showLargeSpaceDivider = position == 0 || (!prevMsg.getSenderId().equals(msg.getSenderId()));
             boolean showDateTimeBar = position == 0 || (!prevMsg.getSenderId().equals(msg.getSenderId()));
             int msgTimeType = 0; // 0:start, 1:middle, 2:end
@@ -373,7 +413,7 @@ public class MessagingActivity extends AppCompatActivity implements QBMgr.QBChat
 //                AppCompatImageView_AlignTopHorzCenter_Oval1 myPartnerPhoto = (AppCompatImageView_AlignTopHorzCenter_Oval1) view.findViewById(R.id.img_view_partner_photo);
 //                AvatarMgr.setImage(myPartnerPhoto, myPartner.getAvatar());
 
-                Toast.makeText(MessagingActivity.this, "HERE!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MessagingActivity.this, "HERE!", Toast.LENGTH_SHORT).show();
 
             }
 

@@ -1,6 +1,7 @@
 package com.boldman.cooperuser.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,12 @@ public class DriverReviewsAdapter extends RecyclerView.Adapter<DriverReviewsAdap
 
         holder.name.setText(finishRide.getUsername());
         holder.comment.setText(finishRide.getUser_rated());
-        holder.userRating.setRating(Float.valueOf(finishRide.getUser_rating()));
+        try {
+            holder.userRating.setRating(Float.valueOf(finishRide.getUser_rating()));
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.i("driver_review_adapter", "user_rating: " + finishRide.getUser_rating());
+        }
         holder.userRating.setIsIndicator(true);
 
         if(finishRide.getAvatar() != null){

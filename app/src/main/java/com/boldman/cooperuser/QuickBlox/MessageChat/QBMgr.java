@@ -1,18 +1,25 @@
 package com.boldman.cooperuser.QuickBlox.MessageChat;
 
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.boldman.cooperuser.EventBus.MessageEvent;
+import com.boldman.cooperuser.Helper.SharedHelper;
+import com.boldman.cooperuser.Utils.GlobalConstants;
+import com.facebook.share.Share;
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.session.QBSession;
 import com.quickblox.auth.session.QBSettings;
@@ -37,6 +44,7 @@ import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 import com.quickblox.videochat.webrtc.QBRTCClient;
 
+import org.greenrobot.eventbus.EventBus;
 import org.jivesoftware.smack.ConnectionListener;
 
 import java.util.ArrayList;
@@ -117,6 +125,23 @@ public class QBMgr {
                     , Integer senderId) {
 
                 System.out.println("********* QB dlgMsgListener processMessage");
+
+                // Caculate unread message count
+                int cntUnreadMsg = 0;
+
+                if (GlobalConstants.isMsgActivity == false){
+
+                    if (SharedHelper.getKey(context, "cntUnreadMsg") != null)
+                        if (!SharedHelper.getKey(context, "cntUnreadMsg").equalsIgnoreCase(""))
+                            cntUnreadMsg = Integer.valueOf(SharedHelper.getKey(context, "cntUnreadMsg"));
+
+                    cntUnreadMsg ++;
+                } else {
+                    cntUnreadMsg = 0;
+                }
+
+                SharedHelper.putKey(context, "cntUnreadMsg", cntUnreadMsg + "");
+                EventBus.getDefault().post(new MessageEvent.ReceivedMessage(cntUnreadMsg));
 
                 QBChatDialog dlg = getDlgFromIncomingMsg(dialogId, message, senderId);
 

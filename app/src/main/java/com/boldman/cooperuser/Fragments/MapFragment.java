@@ -78,6 +78,8 @@ import com.boldman.cooperuser.Adapters.DriverReviewsAdapter;
 import com.boldman.cooperuser.Adapters.ProviderListAdapter;
 import com.boldman.cooperuser.Api.ApiClient;
 import com.boldman.cooperuser.Api.ApiInterface;
+import com.boldman.cooperuser.EventBus.GlobalEvent;
+import com.boldman.cooperuser.EventBus.MessageEvent;
 import com.boldman.cooperuser.Helper.ConnectionHelper;
 import com.boldman.cooperuser.Helper.CustomDialog;
 import com.boldman.cooperuser.Helper.DirectionsJSONParser;
@@ -145,6 +147,9 @@ import com.quickblox.videochat.webrtc.QBRTCSession;
 import com.quickblox.videochat.webrtc.QBRTCTypes;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -276,7 +281,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     RelativeLayout explore;
 
-    //        <!-- Source and Destination Layout-->
+    // Source and Destination Layout
     LinearLayout sourceAndDestinationLayout;
     // FrameLayout frmDestination;
     RelativeLayout frmDestination;
@@ -291,8 +296,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     RelativeLayout menuAndExploreLayout;
 
 
-//       <!--1. Request to providers -->
-
+    // Request to providers
     LinearLayout lnrSelectServiceType;
     RecyclerView rcvServiceTypes;
     ImageView leftArrow, rightArrow;
@@ -315,19 +319,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     LinearLayoutManager servicesLayoutManager;
     TextView distanceText, capacityText;
 
-    //        <!--1. Driver Details-->
-
+    // Driver Details
     LinearLayout lnrHidePopup, lnrProviderPopup, lnrPriceBase, lnrPricemin, lnrPricekm;
-    // RelativeLayout lnrSearchAnimation;
-
     FrameLayout lnrSearchAnimation;
 
     ImageView imgProviderPopup;
     TextView lblPriceMin, lblBasePricePopup, lblCapacity, lblServiceName, lblPriceKm, lblCalculationType, lblProviderDesc;
     Button btnDonePopup;
 
-//         <!--2. Approximate Rate ...-->
-
+    // Approximate Rate
     LinearLayout lnrApproximate;
     LinearLayout lnrAvailableBalance;
     Button btnRequestRideConfirm;
@@ -336,6 +336,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     TextView lblEta;
     TextView lblType;
     TextView lblApproxAmount, surgeDiscount, surgeTxt;
+    TextView lblTotalDistance, lblWalletBalance;
+    TextView tvDistanceToPickup, tvDistanceToDest, tvDistanceTotal;
+    TextView tvEtaToPickup, tvEtaToDest, tvEtaTotal;
     View lineView;
     ImageView btnDistanceDetail, btnETADetail;
 
@@ -346,8 +349,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     DatePickerDialog datePickerDialog;
 
 
-//         <!-- Choose Providers ...-->
-
+    // Choose Providers
     LinearLayout lnrChooseProviders;
     ListView lvProvider;
     Button btnRequestNearest, btnBack;
@@ -355,29 +357,30 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     DriverReviewsAdapter mDriverReviewsAdapter;
     CarImageViewAdapter mCarImageViewAdapter;
 
-//         <!--3. Waiting For Providers ...-->
-
+    // Waiting For Providers
     RelativeLayout lnrWaitingForProviders;
-    TextView lblNoMatch;
+    TextView lblNoMatch, tvWaitingTime;
     ImageView imgCenter;
     Button btnCancelRide;
     private boolean mIsShowing;
     private boolean mIsHiding;
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
+    Handler mHandlerWaiting;
+    Runnable mRunnableWaiting;
+    int mTimeWaiting = 60;
 
-//         <!--4. Driver Accepted ...-->
-
+    // Driver Accepted
     LinearLayout lnrProviderAccepted, lnrAfterAcceptedStatus, AfterAcceptButtonLayout;
     ImageView imgProvider, imgServiceRequested;
     TextView lblProvider, lblStatus, lblServiceRequested, lblModelNumber, lblSurgePrice;
     RatingBar ratingProvider;
     Button btnCancelTrip;
     ImageView btnCall, btnChat;
+    TextView tvUnreadMsgCnt;
 
     QBUser qbUserAcceptedDriver;
 
-//          <!--5. Invoice Layout ...-->
-
+    // Invoice Layout
     LinearLayout lnrInvoice;
     TextView lblBasePrice, lblDistanceCovered, lblExtraPrice, lblTimeTaken, lblDistancePrice, lblCommision, lblTaxPrice, lblTotalPrice, lblPaymentTypeInvoice, lblPaymentChangeInvoice, lblDiscountPrice, lblWalletPrice;
     ImageView imgPaymentTypeInvoice;
@@ -399,8 +402,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     double mSubTotal = 0;
     double mSubTotal2 = 0;
     double mTotalAmountToPay = 0.0d;
-//          <!--6. Rate provider Layout ...-->
 
+    // Rate provider Layout
     LinearLayout lnrRateProvider;
     TextView lblProviderNameRate;
     ImageView imgProviderRate;
@@ -409,7 +412,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     Button btnSubmitReview;
     Float pro_rating;
 
-    //  HomeFragmentListener listener;
+    //  HomeFragmentListener listener
     double mWalletBalance = 0;
     private Random mRandom = new Random(1984);
     LayoutInflater inflater;
@@ -418,9 +421,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     String is_track = "";
     String strTimeTaken = "";
     Button btnHome, btnWork;
-    String strOTP = "";
     TextView lblOTP;
-    TextView lblTotalDistance, lblWalletBalance;
     LinearLayout lnrOTP;
 
     LinearLayout lnrHomeWork, lnrHome, lnrWork;
@@ -440,20 +441,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     String isPaid = "", paymentMode = "";
     int totalRideAmount = 0, walletAmountDetected = 0, couponAmountDetected = 0;
 
-
-    String strCurrentStatus = "";
     //   DrawerLayout drawer;
     int NAV_DRAWER = 0;
     int PLACE_AUTOCOMPLETE_REQUEST_CODE_DEST = 18945;
-    private final int ADD_CARD_CODE = 435;
-    private static final int REQUEST_LOCATION = 1450;
     float feedBackRating;
 
-    double height;
-    double width;
-    public String PreviousStatus = "";
+
     public String CurrentStatus = "";
-    Handler handleCheckStatus;
     String strPickLocation = "", strTag = "", strPickType = "";
     boolean once = true;
     int click = 1;
@@ -805,6 +799,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
                                     displayScreenToRate();
                                 }
+
+                                int cntUnreadMsg = 0;
+
+                                if (SharedHelper.getKey(mContext, "cntUnreadMsg") != null)
+                                    if (!SharedHelper.getKey(mContext, "cntUnreadMsg").equalsIgnoreCase(""))
+                                        cntUnreadMsg = Integer.valueOf(SharedHelper.getKey(mContext, "cntUnreadMsg"));
+
+                                EventBus.getDefault().post(new MessageEvent.ReceivedMessage(cntUnreadMsg));
                             }
 
                         } else{
@@ -856,8 +858,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         srcDestLayout = rootView.findViewById(R.id.sourceDestLayout);
         frmSource = rootView.findViewById(R.id.frmSource);
         lblOTP = rootView.findViewById(R.id.lblOTP);
-        lblTotalDistance = rootView.findViewById(R.id.lblTotalDistance);
-        lblWalletBalance = rootView.findViewById(R.id.lblWalletBalance);
         lnrOTP = rootView.findViewById(R.id.lnrOTP);
         frmDest = rootView.findViewById(R.id.frmDest);
         txtChange = rootView.findViewById(R.id.txtChange);
@@ -920,6 +920,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
         lnrApproximate = rootView.findViewById(R.id.lnrApproximate);
         lnrAvailableBalance = rootView.findViewById(R.id.lnrAvailableBalance);
+        lblTotalDistance = rootView.findViewById(R.id.lblTotalDistance);
+        lblWalletBalance = rootView.findViewById(R.id.lblWalletBalance);
         imgSchedule = rootView.findViewById(R.id.imgSchedule);
         chkWallet = rootView.findViewById(R.id.chkWallet);
         lblEta = rootView.findViewById(R.id.lblEta);
@@ -931,6 +933,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         lineView = rootView.findViewById(R.id.lineView);
         btnDistanceDetail = rootView.findViewById(R.id.img_distance_detail);
         btnETADetail = rootView.findViewById(R.id.img_eta_detail);
+
+        // Detail distance and eta
+        tvDistanceToPickup = rootView.findViewById(R.id.tv_distance_to_pickup);
+        tvDistanceToDest = rootView.findViewById(R.id.tv_distance_to_destination);
+        tvDistanceTotal = rootView.findViewById(R.id.tv_distance_total);
+        tvEtaToPickup = rootView.findViewById(R.id.tv_eta_to_pickup);
+        tvEtaToDest = rootView.findViewById(R.id.tv_eta_to_destination);
+        tvEtaTotal = rootView.findViewById(R.id.tv_eta_total);
 
         //Schedule Layout
         ScheduleLayout = rootView.findViewById(R.id.ScheduleLayout);
@@ -947,6 +957,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 //         <!--3. Waiting For Providers ...-->
 
         lnrWaitingForProviders = rootView.findViewById(R.id.lnrWaitingForProviders);
+        tvWaitingTime = rootView.findViewById(R.id.tv_waiting_time);
         lblNoMatch = rootView.findViewById(R.id.lblNoMatch);
         //imgCenter =  rootView.findViewById(R.id.imgCenter);
         btnCancelRide = rootView.findViewById(R.id.btnCancelRide);
@@ -966,6 +977,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         ratingProvider = rootView.findViewById(R.id.ratingProvider);
         btnCall = rootView.findViewById(R.id.btnCall);
         btnChat = rootView.findViewById(R.id.btnChat);
+        tvUnreadMsgCnt = rootView.findViewById(R.id.tvUnreadMsgCnt);
         btnCancelTrip = rootView.findViewById(R.id.btnCancelTrip);
 
 
@@ -1214,8 +1226,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 //                    extend_dest_lat = "" + cmPosition.target.latitude;
 //                    extend_dest_lng = "" + cmPosition.target.longitude;
 //                    showTripExtendAlert(extend_dest_lat, extend_dest_lng);
-
-                    Toast.makeText(mContext, "When btnDone is clicked, is_track is yes and so on..", Toast.LENGTH_SHORT).show();
 
                 } else {
                     pick_first = true;
@@ -1710,13 +1720,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                     long milliseconds = date.getTime();
                     if (!DateUtils.isToday(milliseconds)) {
 
-                        Utils.displayMessage(mActivity, "sending request...");
+                        Utils.displayMessage(mActivity, "Sending request...");
 
                         //sendRequest();
                         displayScreenChooseDriver();
                     } else {
                         if (Utils.checkTime(scheduledTime)) {
-                            Utils.displayMessage(mActivity, "sending request...");
+                            Utils.displayMessage(mActivity, "Sending request...");
                             //sendRequest();
                             displayScreenChooseDriver();
                         } else {
@@ -1825,8 +1835,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                                 String strEmailContent = "content: " + ((EditText) emailDialog.findViewById(R.id.etEmailContent)).getText().toString();
                                 strEmailContent += ", current_latitude: " + currentUserInfo.getLatitude();
                                 strEmailContent += ", current_longitude: " + currentUserInfo.getLongitude();
-
-                                Toast.makeText(mContext, GlobalConstants.g_sos_email_address + " : " + strEmailContent, Toast.LENGTH_SHORT).show();
 
                                 final ProgressDialog progressDialog = new ProgressDialog(mContext);
                                 progressDialog.setMessage("Please wait...");
@@ -1953,7 +1961,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 try {
                     Intent newIntent = new Intent(mContext, MessagingActivity.class);
                     newIntent.putExtra("OfferId", QBMgr.getUser().getId());
+                    newIntent.putExtra("OfferName", SharedHelper.getKey(mContext, "first_name") + " " + SharedHelper.getKey(mContext, "last_name"));
                     newIntent.putExtra("OfferPartnerID", qbUserAcceptedDriver.getId());
+                    newIntent.putExtra("OfferPartnerName", mAcceptedDriverInfo.getFirstName() + " " + mAcceptedDriverInfo.getLastName());
 
                     startActivity(newIntent);
                 } catch (Exception e){
@@ -2077,12 +2087,42 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
                             JSONObject result = data.getJSONObject("data");
 
-                            mEstimatedFair = result.getDouble("estimated_fare");
-                            mSurgeValue = result.getDouble("surge_value");
-                            mSurgeTrigger = result.getInt("surge_trigger");
-                            mTaxPrice = result.getDouble("tax_price");
-                            mBasePrice = result.getDouble("base_price");
-                            mWalletBalance = result.getDouble("wallet_balance");
+                            try {
+                                mEstimatedFair = result.getDouble("estimated_fare");
+                            } catch (Exception e){
+                                e.printStackTrace();
+                                mEstimatedFair = 0;
+                            }
+                            try {
+                                mSurgeValue = result.getDouble("surge_value");
+                            } catch (Exception e){
+                                e.printStackTrace();
+                                mSurgeValue = 0;
+                            }
+                            try {
+                                mSurgeTrigger = result.getInt("surge_trigger");
+                            } catch (Exception e){
+                                e.printStackTrace();
+                                mSurgeTrigger = 0;
+                            }
+                            try {
+                                mTaxPrice = result.getDouble("tax_price");
+                            } catch (Exception e){
+                                e.printStackTrace();
+                                mTaxPrice = 0;
+                            }
+                            try {
+                                mBasePrice = result.getDouble("base_price");
+                            } catch (Exception e){
+                                e.printStackTrace();
+                                mBasePrice = 0;
+                            }
+                            try {
+                                mWalletBalance = result.getDouble("wallet_balance");
+                            } catch (Exception e){
+                                e.printStackTrace();
+                                mWalletBalance = 0;
+                            }
 
                             SharedHelper.putKey(mContext, "wallet_balance", "" + mWalletBalance);
 
@@ -2209,7 +2249,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
         isSocketConnected = mSocket.connected();
 
-        Toast.makeText(getActivity(), "Socket connection : " + isSocketConnected, Toast.LENGTH_SHORT).show();
         Log.i("creatSocket", "Boldman------> Socket connection! " + isSocketConnected);
 
         mSocket.on(GlobalConstants.URL_CALLBACK, new Emitter.Listener() {
@@ -2366,6 +2405,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                         qbUserAcceptedDriver.setPassword(res.getString("quickblox_password"));
 
                         Log.i("accepted_by_driver", "Boldman------> Accepted by driver! ------>" + data);
+
+                        mHandlerWaiting.removeCallbacks(mRunnableWaiting);
 
                         ((Activity) getContext()).runOnUiThread(new Runnable() {
                             public void run() {
@@ -2934,6 +2975,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         lblEta.setText(strTimeTaken);
         lblType.setText(selectedServiceType.getName());
 
+        tvDistanceToPickup.setText("To Pickup Location: " + 0 + "km");
+        tvDistanceToDest.setText("To Pickup Location: " + mDistanceKm + "km");
+        tvDistanceTotal.setText("Total: " + mDistanceKm + "km");
+
+        tvEtaToPickup.setText("To Pickup Location: " + 0 + "min");
+        tvEtaToDest.setText("To Pickup Location: " + strTimeTaken + "min");
+        tvEtaTotal.setText("Total: " + strTimeTaken + "min");
+
         flowValue = 2;
         layoutChanges();
     }
@@ -3097,6 +3146,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         flowValue = 3;
         layoutChanges();
         //displayFirstScreen();
+
+
 
     }
 
@@ -3738,8 +3789,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     @Override
     public void onAttach(Context context) {
+
         super.onAttach(context);
         this.mContext = context;
+        GlobalEvent.getBus().register(this);
         try {
             mListener = (OnFragmentInteractionListener) context;
         } catch (ClassCastException e) {
@@ -3758,6 +3811,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         this.mActivity = activity;
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onReceivedMessage(MessageEvent.ReceivedMessage event) {
+
+        int cnt = event.state;
+
+        if (cnt > 0){
+            tvUnreadMsgCnt.setVisibility(View.VISIBLE);
+            tvUnreadMsgCnt.setText(cnt + "");
+        } else{
+            tvUnreadMsgCnt.setVisibility(View.INVISIBLE);
+        }
+    }
 
 //////////////////////////////////////// MarkerDragListener  //////////////////////////////////
 
@@ -3966,6 +4031,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 mStartAddress = parser.getStartAddress();
                 mEndAddress = parser.getEndAddress();
 
+                lblTotalDistance.setText(mDistanceKm);
+                lblEta.setText(strTimeTaken);
+
+                tvDistanceToDest.setText("To Pickup Location: " + mDistanceKm + "km");
+                tvDistanceTotal.setText("Total: " + mDistanceKm + "km");
+
+                tvEtaToDest.setText("To Pickup Location: " + strTimeTaken + "min");
+                tvEtaTotal.setText("Total: " + strTimeTaken + "min");
+
                 SharedHelper.putKey(mContext, "distance", mDistanceKm);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -4098,6 +4172,42 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         }
         return data;
     }
+
+    /* Start count waiting time in the screen of finding ride */
+    private void startCountWaitingTime() {
+
+        mTimeWaiting = 60;
+
+        mHandlerWaiting = new Handler();
+
+        mRunnableWaiting = new Runnable() {
+
+            @Override
+            public void run() {
+
+                if (mTimeWaiting >= 0){
+
+                    tvWaitingTime.setText(mTimeWaiting + " s");
+                    mTimeWaiting --;
+                } else{
+
+                    if (mSocket.connected()) {
+                        sendCancelRide("");
+                        displayFirstScreen();
+                    } else{
+                        Toast.makeText(mContext, "There's a problem with connection to server.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    mHandlerWaiting.removeCallbacks(mRunnableWaiting);
+                }
+
+                mHandlerWaiting.postDelayed(mRunnableWaiting, 1000);
+            }
+        };
+
+        mActivity.runOnUiThread(mRunnableWaiting);
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -4542,7 +4652,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
                 emitJsonObject(GlobalConstants.URL_AGREE_TO_DRIVER, val);
 
-                Toast.makeText(getActivity(), "Agree to driver!", Toast.LENGTH_SHORT).show();
                 Log.i("agree_to_driver", "Boldman------> Agree to driver! ------>");
 
             } catch (JSONException e) {
@@ -4573,7 +4682,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
             emitJsonObject(GlobalConstants.URL_CANCEL_RIDE, val);
 
-            Toast.makeText(getActivity(), "Cancel ride!", Toast.LENGTH_SHORT).show();
             Log.i("cancel_ride", "Boldman-------> Cancel ride! ------>");
         } catch (JSONException e) {
             Log.e("HERE", e.getMessage());
@@ -4793,6 +4901,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                     mSrcMarker.setDraggable(false);
                     mDstMarker.setDraggable(false);
                 }
+
+                startCountWaitingTime();
+
             } else if (flowValue == 4) {        //  Accepted, Arrived, On Ride Screen
                 menuButton.setVisibility(View.VISIBLE);
                 lnrProviderAccepted.startAnimation(slide_up);
@@ -4876,7 +4987,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             e.printStackTrace();
         }
     }
-
 
 //    @Override
 //    public void onInteractionExploreToMap(String lat, String lng) {
@@ -5321,9 +5431,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                     mCouponDiscount = data.getStringExtra("discount");
                     mCouponDiscountType = data.getStringExtra("discount_type");
 
-                    Toast.makeText(mContext, "Boldman-------->Coupon_code : "
-                            + mCouponCode + " Discount: " + mCouponDiscount + " DiscountType : " + mCouponDiscountType, Toast.LENGTH_SHORT).show();
-
                     calculatePrices();
 
                 } catch (Exception e){
@@ -5351,6 +5458,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
         mSocket.off();
         mSocket.disconnect();
+        GlobalEvent.getBus().unregister(this);
 
         super.onDestroy();
     }

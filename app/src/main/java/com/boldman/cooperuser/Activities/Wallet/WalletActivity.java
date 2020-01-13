@@ -568,7 +568,7 @@ public class WalletActivity extends AppCompatActivity implements View.OnClickLis
     /*  Go to the BrainTree Server and Add money*/
     private void goToBrainTreeActivity(String strBTToken, double update_amount) {
 
-        Toast.makeText(WalletActivity.this, strBTToken.substring(10, 20) + "  " + update_amount, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(WalletActivity.this, strBTToken.substring(10, 20) + "  " + update_amount, Toast.LENGTH_SHORT).show();
 
         onBraintreeSubmit();
     }

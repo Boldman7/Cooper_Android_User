@@ -30,8 +30,7 @@
             android:fontFamily="@font/sf_pro_text_medium"
             android:gravity="center"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/txt_size_label_12"
-            tools:text="@string/sample_date_may" />
+            android:textSize="@dimen/txt_size_label_12"/>
 
         <TextView
             android:id="@+id/txt_time"
@@ -40,8 +39,7 @@
             android:layout_marginLeft="11dp"
             android:gravity="center"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/txt_size_label_12"
-            tools:text="@string/sample_time_11_30_am" />
+            android:textSize="@dimen/txt_size_label_12"/>
     </LinearLayout>
 
     <LinearLayout
@@ -54,15 +52,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/shape_round_gray_partner_msg_start"
             android:gravity="left|center_vertical"
-            android:maxWidth="250dp"
+            android:maxWidth="245dp"
             android:paddingLeft="11.5dp"
             android:paddingTop="7.5dp"
-            android:paddingRight="6dp"
+            android:paddingRight="11.5dp"
             android:paddingBottom="7.5dp"
             android:textColor="@android:color/black"
             android:textSize="@dimen/txt_size_label_17"
-            tools:text="@string/sample_msg_me_kokoda_memorial_elizabeth_hey_i_would" />
+            android:text="Hi"/>
     </LinearLayout>
 </LinearLayout>

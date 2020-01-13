@@ -479,12 +479,26 @@
                         android:layout_alignParentTop="true"
                         android:layout_toEndOf="@+id/shadowBack"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        android:visibility="visible">
 
                         <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/transparent_white">
+
+                            <TextView
+                                android:id="@+id/tv_waiting_time"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:text="60 s"
+                                android:textSize="@dimen/_18sdp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:layout_marginTop="@dimen/_100sdp"
+                                android:layout_marginEnd="@dimen/_30sdp"
+                                android:layout_gravity="end|top"
+                                android:background="@drawable/circle"
+                                android:gravity="center"/>
 
                             <com.airbnb.lottie.LottieAnimationView
                                 android:layout_width="@dimen/_120sdp"
@@ -767,12 +781,38 @@
                                         android:layout_height="match_parent"
                                         android:layout_margin="@dimen/_2sdp" />
 
-                                    <ImageView
-                                        android:id="@+id/btnChat"
+                                    <RelativeLayout
                                         android:layout_width="0dp"
                                         android:layout_height="@dimen/_30sdp"
                                         android:layout_weight="1"
-                                        android:src="@drawable/message_icon" />
+                                        android:gravity="center">
+
+                                        <RelativeLayout
+                                            android:layout_width="@dimen/_35sdp"
+                                            android:layout_height="@dimen/_30sdp">
+
+                                            <ImageView
+                                                android:id="@+id/btnChat"
+                                                android:layout_width="@dimen/_30sdp"
+                                                android:layout_height="@dimen/_30sdp"
+                                                android:src="@drawable/message_icon" />
+
+                                            <TextView
+                                                android:id="@+id/tvUnreadMsgCnt"
+                                                android:layout_width="@dimen/_12sdp"
+                                                android:layout_height="@dimen/_12sdp"
+                                                android:text="1"
+                                                android:textColor="@color/white"
+                                                android:background="@color/red"
+                                                android:layout_alignParentBottom="true"
+                                                android:layout_alignParentRight="true"
+                                                android:gravity="center"
+                                                android:visibility="invisible"/>
+
+                                        </RelativeLayout>
+
+                                    </RelativeLayout>
+
 
                                     <TextView
                                         android:layout_width="@dimen/_2sdp"
@@ -2030,7 +2070,7 @@
                                         android:text="To Pickup Location: 1km"/>
 
                                     <TextView
-                                        android:id="@+id/tv_distance_to_detination"
+                                        android:id="@+id/tv_distance_to_destination"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"
@@ -2106,7 +2146,7 @@
                                         android:text="To Pickup Location: 1min"/>
 
                                     <TextView
-                                        android:id="@+id/tv_eta_to_detination"
+                                        android:id="@+id/tv_eta_to_destination"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"

@@ -367,6 +367,12 @@ public class Utils {
             case "S_SUCCESS_ADDCARIMAGE":
                 response = "The car image has added successfully.";
                 break;
+            case "S_SUCCESS_UPDATEPROFILE":
+                response = "The profile has updated successfully.";
+                break;
+            case "S_PAY_CHARGE_SUCCESS":
+                response = "Charged successfully.";
+                break;
             default:
                 response = strKey;
         }

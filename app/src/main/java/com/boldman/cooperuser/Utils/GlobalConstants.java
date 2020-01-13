@@ -3,9 +3,9 @@ package com.boldman.cooperuser.Utils;
 public class GlobalConstants{
 
     //public static final String SERVER_HTTP_URL = "https://login.trycooper.com";
-    public static final String SERVER_HTTP_URL = "http://192.168.1.8:8003";
+    public static final String SERVER_HTTP_URL = "http://192.168.1.5:8003";
     //public static final String SERVER_SOCKET_URL = "http://34.204.43.32:9090";
-    public static final String SERVER_SOCKET_URL = "http://192.168.1.8:9090";
+    public static final String SERVER_SOCKET_URL = "http://192.168.1.5:9090";
     //public static final int SERVER_PORT = 8003;
     //public static final int SERVER_SOCKET_PORT = 9090;
     public static final String SERVER_API = "api";
@@ -52,6 +52,7 @@ public class GlobalConstants{
     public static int RIDE_STATUS_FINISHED = 10;
 
     public static String USER_QB_DEFAULT_PASSWORD = "quickblox_cooper";
+    public static boolean isMsgActivity = false;
 
     public static double VAT_FEE = 10;
 }

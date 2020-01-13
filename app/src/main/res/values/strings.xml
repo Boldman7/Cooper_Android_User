@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><!DOCTYPE
-    resources
-    [<!ENTITY appName "CoOper"><!ENTITY appNameCaps "COOPER"><!ENTITY Provider "Driver"><!ENTITY provider "driver"><!ENTITY Service "Ride"><!ENTITY service "ride">]
-    >
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">&appName;</string>
+    <string name="app_name">Cooper-User</string>
     <!--Google map-->
     <!--<string name="google_map_api" translatable="false">AIzaSyBUkso-TuZc34REFDl3ciFjKmuGG7P3gDI</string>-->
     <string name="google_map_api" translatable="false">AIzaSyAsVN1AHgbMr2n3SYtNZxFiT7e1bz3tP5s</string>
@@ -116,7 +113,7 @@
     <string name="credit_cards">Credit Cards</string>
 
     <!--Schedule Layout -->
-    <string name="schedule">Schedule a &Service;</string>
+    <string name="schedule">Schedule a Ride</string>
     <string name="change_date">Change</string>
     <string name="sample_date">Choose a date</string>
     <string name="sample_time">Choose a time</string>
@@ -146,13 +143,13 @@
     <string name="done">Done</string>
 
     <!-- Waiting for provider -->
-    <string name="looking_for_ride">Finding &Service;....</string>
-    <string name="cancel_ride">Cancel &service;</string>
+    <string name="looking_for_ride">Finding Ride....</string>
+    <string name="cancel_ride">Cancel Ride</string>
     <string name="share">Share</string>
-    <string name="cancel_ride_alert">Are you sure want to cancel the &service;?</string>
-    <string name="no_providers_found">No one found at the moment to take your &service;, Please try after sometime</string>
+    <string name="cancel_ride_alert">Are you sure want to cancel the Ride?</string>
+    <string name="no_providers_found">No one found at the moment to take your Ride, Please try after sometime</string>
     <string name="no_drivers_found">No drivers available to take your trip</string>
-    <string name="driver_busy">Your &Service; was cancelled by the &Provider;.Please contact us for support</string>
+    <string name="driver_busy">Your Ride was cancelled by the Driver.Please contact us for support</string>
     <string name="retry">Retry Now</string>
     <string name="try_later">Later</string>
 
@@ -186,9 +183,9 @@
 
 
     <!--Status -->
-    <string name="arrived">&Provider; has arrived at your location</string>
-    <string name="picked_up">you are on &service;</string>
-    <string name="dropped">&Service; has completed</string>
+    <string name="arrived">Driver has arrived at your location</string>
+    <string name="picked_up">you are on Ride</string>
+    <string name="dropped">Ride has completed</string>
 
     <!--Your Trips-->
     <string name="history">History</string>
@@ -233,7 +230,7 @@
     <!--Show Dailog-->
     <string name="connect_to_network">Connect to network or quit</string>
     <string name="change_pwd_dialog">Your password has updated successfully. Please login with your new password.</string>
-    <string name="cencel_request">Are you sure you want to cancel the &service;?</string>
+    <string name="cencel_request">Are you sure you want to cancel the Ride?</string>
     <string name="connect_to_wifi">Connect to WIFI</string>
     <string name="quit">Quit</string>
 
@@ -351,8 +348,8 @@
 
     <!--Activity Help-->
     <string name="help_msg">Our team person contact\n you soon!</string>
-    <string name="help_title">&appNameCaps; Help</string>
-    <string name="schedule_request">Schedule &Service;</string>
+    <string name="help_title">COOPER-USER Help</string>
+    <string name="schedule_request">Schedule Ride</string>
     <string name="surge_pricing_title">Due to high demand price may vary</string>
     <string name="request_now">Ride now</string>
     <string name="help">Help</string>
@@ -366,7 +363,7 @@
     <string name="fcm_token_required">The fcm token field is required.</string>
     <string name="ok">Ok</string>
     <string name="use_wallet_amount">Use wallet amount</string>
-    <string name="arriving">&Provider; accepted your request.</string>
+    <string name="arriving">Driver accepted your request.</string>
     <string name="view_invoice">View receipt</string>
     <string name="payment_set_as_card">Payment mode changed to card</string>
     <string name="payment_set_as_cash">Payment mode changed to cash</string>
@@ -393,7 +390,7 @@
     <string name="language_update">Updating Language... Please wait</string>
 
     <!--Activity Begin-->
-    <string name="get_moving_with_tranxit">Get moving with &appName; Services</string>
+    <string name="get_moving_with_tranxit">Get moving with Cooper-User Services</string>
     <string name="enter_your_mail_id">Enter your Access Key</string>
     <string name="enter_username">Please enter your username</string>
     <string name="enter_your_user_name">Enter your Username</string>
