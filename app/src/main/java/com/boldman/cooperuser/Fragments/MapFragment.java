@@ -4034,11 +4034,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 lblTotalDistance.setText(mDistanceKm);
                 lblEta.setText(strTimeTaken);
 
-                tvDistanceToDest.setText("To Pickup Location: " + mDistanceKm + "km");
-                tvDistanceTotal.setText("Total: " + mDistanceKm + "km");
+                tvDistanceToDest.setText("To Pickup Location: " + mDistanceKm);
+                tvDistanceTotal.setText("Total: " + mDistanceKm);
 
-                tvEtaToDest.setText("To Pickup Location: " + strTimeTaken + "min");
-                tvEtaTotal.setText("Total: " + strTimeTaken + "min");
+                tvEtaToDest.setText("To Pickup Location: " + strTimeTaken);
+                tvEtaTotal.setText("Total: " + strTimeTaken);
 
                 SharedHelper.putKey(mContext, "distance", mDistanceKm);
             } catch (Exception e) {
@@ -4189,7 +4189,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
                     tvWaitingTime.setText(mTimeWaiting + " s");
                     mTimeWaiting --;
+
+                    mHandlerWaiting.postDelayed(mRunnableWaiting, 1000);
                 } else{
+
+                    mHandlerWaiting.removeCallbacks(mRunnableWaiting);
+
+                    Log.d("Runnable_remove","ok");
 
                     if (mSocket.connected()) {
                         sendCancelRide("");
@@ -4198,10 +4204,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                         Toast.makeText(mContext, "There's a problem with connection to server.", Toast.LENGTH_SHORT).show();
                     }
 
-                    mHandlerWaiting.removeCallbacks(mRunnableWaiting);
                 }
 
-                mHandlerWaiting.postDelayed(mRunnableWaiting, 1000);
             }
         };
 
